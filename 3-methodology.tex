@@ -1,0 +1,58 @@
+\section{Methodology}\label{sec:methodology}
+This section outlines the forecasting techniques that will be used, as well as their connection with time series extracted from event logs.
+
+\subsection{Time series techniques}
+To model the time series of DFGs, various algoritms are used.
+In time series modelling, the main objective is to obtain a forecast or prediction $\hat{y}_{T+h|T}$ for a horizon $h\in \mathbb{N}$ based on previous $T$ values in the series $(y_1,...,y_T)$ \cite{hyndman2018forecasting}.
+A wide array of time series techniques exist, ranging from simple models such as naive forecasts over to more advanced approaches such as exponential smoothing and autoregressive models.
+Many also exist in a seasonal variant due to their application in contexts such as sales forecasting.
+Below, the most-widely used techniques are formalised.
+
+The naive forecast simply uses the last value of the time series $T$ as its prediction:
+\[\hat{y}_{T+h|T}=y_T\]
+
+A Simple Exponential Smoothing (SES) model uses a weighted average of past values where their important exponentially decays as they are further into the past:
+\[\hat{y}_{T+h|T}=\alpha y_T + (1-\alpha)\hat{y}_{T|T-1}\]
+with $\alpha \in [0,1]$ a smoothing parameter where lower values of $\alpha$ allow for focusing on the more recent values more.
+Holt's models introduce a trend in the forecast, meaning the forecast is not flat:
+\[\hat{y}_{T+h|T}=l_t + hb_t\]
+with $l_t = \alpha y_t + (1-\alpha)(l_{t-1}+b_{t-1})$ modelling the overall level of the time series and $b_t=\beta(l_t-l_{t-1})+(1-\beta)b_{t-1}$ modelling the trend over the series where $\alpha$ is as before and $\beta$ the smoothing parameter for the trend.
+Exponential smoothing models often perform very well despite their simple setup.
+
+AutoRegressive Integrating Moving Average (ARIMA) models are based on autocorrelations within time series. 
+The combine autoregressions with a moving average over error terms.
+
+An AutoRegressive (AR) model of order $p$ uses the past $p$ values in the time series and apply a regression over them. 
+It can be written as:
+\[y_t=c+\phi_1 y_{t-1} + \phi_2 y_{t-2} + \dots + \phi_p y_{t-p} + \epsilon_t\]
+where all $\phi_i,\, i\in[1,p]$ can assign different weights to different time lags.
+
+A Moving Average (MA) model of order $q$ can be written as:
+\[y_t=c+\epsilon_t + \phi_1\epsilon_{t-1}+\dots + \phi_q\epsilon_{t-q}\]
+with $\phi>0$ a smoothing parameter, and $\epsilon_t$ again a white noise series, hence the model creates a moving average of the past forecast errors.
+Given the necessity of using a white noise series for AR and MA models, data is often differenced to obtain such series.
+
+ARIMA models then combine both AR and MA models where the integration is taking place after modelling as these models are fitted over differenced time series. 
+An ARIMA($p,d,q$) model can be written as:
+\[y'_t=c + \phi_1 y'_{t-1} + \dots + \phi_p y'_{t-p} + \theta_1 \epsilon_{t-1} + \dots + \theta_q \epsilon_t\]
+with $y'_t$ a differenced series of order $d$.
+Forecasting is possible by introducing $T+h$ to the equation and iteratively obtaining results by starting off with $T+1$.
+ARIMA models are considered to be one of the strongest time series modelling techniques.
+
+An extension to ARIMA which is widely used in econometrics exists in (Generalized) AutoRegressive Conditional Heteroskedasticity ((G)ARCH) models \cite{francq2019garch}.
+They resolve the assumption that the variance of the error term has to be equal over time, but rather model this variance as a function of the previous error term.
+For AR-models, this leads to the use of ARCH-models, while for ARMA models GARCH-models are used as follows.
+
+ARCH model:
+\[\sigma^2_t = \alpha_0 + \alpha_1 \epsilon^2_{t-1} + \dots + \alpha_q \epsilon^2_{t-q}\]
+with $\alpha_0 > 0$ and $\alpha_i\geq 0,\,i>0$ smoothing parameters, and $\epsilon_t = \sigma_tz_t$ where $z_t$ is a white noise process with $\sigma_t=\sqrt{\alpha_0+\alpha_1y^2_{t-1}}$.
+
+GARCH model:
+\[\sigma^2_t = \omega + \alpha_1 \epsilon^2_{t-1} + \dots + \alpha_q \epsilon^2_{t-q} + \dots + \beta_1\sigma^2_{t-1} + \dots + \beta_p\sigma^2_{t-p}\]
+with $\alpha_0 > 0$ and $\alpha_i\geq 0,\,i>0$.
+
+
+
+\subsection{Connection with DF series}
+The aforementioned time series are all univariate in contrast with vector autoregression models, or machine learning-based methods such as neural networks or random forest regressors.
+To this purpose, a direct strategy \cite{weigend2018time} is used where

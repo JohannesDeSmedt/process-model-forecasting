@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{DBLP:journals/sosym/AalstRVDKG10}
+van~der Aalst, W.M.P., Rubin, V.A., Verbeek, H.M.W., van Dongen, B.F., Kindler,
+  E., G{\"{u}}nther, C.W.: Process mining: a two-step approach to balance
+  between underfitting and overfitting. Softw. Syst. Model.  9(1),  87--111
+  (2010)
+
+\bibitem{francq2019garch}
+Francq, C., Zakoian, J.M.: GARCH models: structure, statistical inference and
+  financial applications. John Wiley \& Sons (2019)
+
+\bibitem{hanke2001business}
+Hanke, J.E., Reitsch, A.G., Wichern, D.W.: Business forecasting, vol.~9.
+  Prentice Hall New Jersey (2001)
+
+\bibitem{hyndman2018forecasting}
+Hyndman, R.J., Athanasopoulos, G.: Forecasting: principles and practice. OTexts
+  (2018)
+
+\bibitem{DBLP:conf/caise/TaxVRD17}
+Tax, N., Verenich, I., Rosa, M.L., Dumas, M.: Predictive business process
+  monitoring with {LSTM} neural networks. In: CAiSE. Lecture Notes in Computer
+  Science, vol. 10253, pp. 477--492. Springer (2017)
+
+\bibitem{DBLP:journals/tkdd/TeinemaaDRM19}
+Teinemaa, I., Dumas, M., Rosa, M.L., Maggi, F.M.: Outcome-oriented predictive
+  process monitoring: Review and benchmark. {ACM} Trans. Knowl. Discov. Data
+  13(2),  17:1--17:57 (2019)
+
+\bibitem{weigend2018time}
+Weigend, A.S.: Time series prediction: forecasting the future and understanding
+  the past. Routledge (2018)
+
+\end{thebibliography}

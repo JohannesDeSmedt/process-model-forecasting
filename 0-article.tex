@@ -1,0 +1,83 @@
+\documentclass{svproc}
+
+\usepackage{url}
+\usepackage{mdframed}
+\usepackage{latexsym}
+\usepackage{python}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+
+\usepackage{subfig}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bigstrut}
+
+\usepackage[cmex10]{amsmath}
+\usepackage{pgfplots}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{footmisc}
+\captionsetup{compatibility=false}
+\usepackage{rotating}
+\usepackage{xparse}
+\usepackage{todonotes}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{marginnote}
+\usepackage{xcolor}
+\usepackage{bigstrut}
+
+%\usepackage{tabulary}
+\usepackage{colortbl}
+\def\UrlFont{\rmfamily}
+
+\begin{document}
+\mainmatter      
+%
+\title{Process Model Forecasting Using Time Series}
+%
+\titlerunning{Process Model Forecasting Using Time Series} 
+%
+\author{Johannes~De~Smedt\inst{1} \and Artem~Polyvyanyy\inst{2} \and Jochen~De~Weerdt\inst{1}}
+%
+%
+\institute{Department of Decision Sciences and Information Management\\ 
+	Faculty of Economics and Business, KU Leuven, Leuven, Belgium\\
+\email{\{johannes.desmedt;jochen.deweerdt\}@kuleuven.be}
+\and
+School of Computing and Information Systems\\
+The University of Melbourne, Australia\\
+\email{artem.polyvyanyy@unimelb.edu.au}
+}
+\maketitle              
+
+\begin{abstract}
+The surge in event-based data that is recorded during the execution of business processes is every-growing and has spurred an array of process analytics techniques to support and improve information systems.
+A major strand of process analytics encompasses the prediction of the process' future development, mostly focusing on next-step, remaining time, or goal-oriented prediction.
+The granularity of such approaches lies with the events in the process.
+This work approaches a process at the abstraction level of the process model, i.e., rather than fine-granular next-step prediction, the process' global behaviour is extrapolated into the future.
+To this purpose, event data is captured at various intervals and aggregated in the form of directly-follows graphs.
+Each activity pairs' relation within the graph is monitored over these intervals and their future values predicted using common time series techniques.
+Experiments show that these techniques are already well-capable of informing process analysts with the future status of the process.
+\keywords{Process model forecasting, predictive process modelling, process mining, time series analysis}
+\end{abstract}
+%
+\input{1-introduction}
+\input{2-preliminaries}
+\input{3-methodology}
+\input{4-evaluation}
+%\input{5-related}
+%\input{6-conclusion}
+
+\bibliographystyle{splncs03}
+\bibliography{lib}
+
+
+\end{document}
