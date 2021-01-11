@@ -43,16 +43,24 @@ An extension to ARIMA which is widely used in econometrics exists in (Generalize
 They resolve the assumption that the variance of the error term has to be equal over time, but rather model this variance as a function of the previous error term.
 For AR-models, this leads to the use of ARCH-models, while for ARMA models GARCH-models are used as follows.
 
-ARCH model:
-\[\sigma^2_t = \alpha_0 + \alpha_1 \epsilon^2_{t-1} + \dots + \alpha_q \epsilon^2_{t-q}\]
-with $\alpha_0 > 0$ and $\alpha_i\geq 0,\,i>0$ smoothing parameters, and $\epsilon_t = \sigma_tz_t$ where $z_t$ is a white noise process with $\sigma_t=\sqrt{\alpha_0+\alpha_1y^2_{t-1}}$.
+An ARCH(q) model captures the change in variance over time as follows:
+\[\sigma^2_t = \alpha_0 + \alpha_1 y^2_{t-1} + \dots + \alpha_q y^2_{t-q}\] is the variance over time
+with $\alpha_0 > 0$ and $\alpha_i\geq 0,\,i\in[1,q]$ smoothing parameters, and $y_t=\sigma_t\epsilon_t$ where $\epsilon_t \overset{i.i.d}{\sim} (\mu=0, \sigma^2=1)$.
+This can be used to capture that the variance  gradually increases over time, or has short bursts of increased variance.
 
-GARCH model:
-\[\sigma^2_t = \omega + \alpha_1 \epsilon^2_{t-1} + \dots + \alpha_q \epsilon^2_{t-q} + \dots + \beta_1\sigma^2_{t-1} + \dots + \beta_p\sigma^2_{t-p}\]
-with $\alpha_0 > 0$ and $\alpha_i\geq 0,\,i>0$.
+A GARCH(p,q) model combines both the past values of observations as well as the past values of variance:
+\[\sigma^2_t = \alpha_0 + \alpha_1 y^2_{t-1} + \dots + \alpha_q y^2_{t-q} + \dots + \beta_1\sigma^2_{t-1} + \dots + \beta_p\sigma^2_{t-p}\]
+with $\alpha_0 > 0$ and $\alpha_i,\beta_i\geq 0,\,i>0$.
+
+(G)ARCH models often outperform ARIMA models in contexts such as the prediction of financial indicators of which the variance often changes over time \cite{francq2019garch}.
 
 
-
-\subsection{Connection with DF series}
-The aforementioned time series are all univariate in contrast with vector autoregression models, or machine learning-based methods such as neural networks or random forest regressors.
-To this purpose, a direct strategy \cite{weigend2018time} is used where
+\subsection{Forecasting Directly Follows series}
+The trade-off exists between approaching DFGs as a multivariate collection of DF time series, or treating each DF separately.
+The aforementioned time series techniques all use univariate data in contrast with, e.g., Vector AutoRegression (VAR) models, or machine learning-based methods such as neural networks or random forest regressors.
+Despite their simple setup, it is debated whether traditional statistical approaches are necessarily outperformed by machine learning methods. 
+\cite{makridakis2018statistical} found that this is not the case on a large number of datasets and note that the machine learning algorithms require significantly more computational power, a result that was later reaffirmed although it is noted that hybrid solutions are effective \cite{makridakis2020m4}.
+Especially for longer horizons traditional time series approaches still outperform machine learning-based models.
+Given the potentially high number of DF pairs in a process' DFG, the proposed approach uses a time series algorithm for each DF series separately.
+VAR models would require a high number of intervals (at least as many as there are DFs times the lag coefficient) to be able to estimate all parameters of such a high number of time series despite their potentially strong performance \cite{thomakos2004naive}.
+Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs.

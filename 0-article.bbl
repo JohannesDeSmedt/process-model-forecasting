@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
@@ -8,9 +8,17 @@ van~der Aalst, W.M.P., Rubin, V.A., Verbeek, H.M.W., van Dongen, B.F., Kindler,
   between underfitting and overfitting. Softw. Syst. Model.  9(1),  87--111
   (2010)
 
+\bibitem{bergmeir2012use}
+Bergmeir, C., Ben{\'\i}tez, J.M.: On the use of cross-validation for time
+  series predictor evaluation. Information Sciences  191,  192--213 (2012)
+
 \bibitem{francq2019garch}
 Francq, C., Zakoian, J.M.: GARCH models: structure, statistical inference and
   financial applications. John Wiley \& Sons (2019)
+
+\bibitem{gao2010survey}
+Gao, X., Xiao, B., Tao, D., Li, X.: A survey of graph edit distance. Pattern
+  Analysis and applications  13(1),  113--129 (2010)
 
 \bibitem{hanke2001business}
 Hanke, J.E., Reitsch, A.G., Wichern, D.W.: Business forecasting, vol.~9.
@@ -19,6 +27,32 @@ Hanke, J.E., Reitsch, A.G., Wichern, D.W.: Business forecasting, vol.~9.
 \bibitem{hyndman2018forecasting}
 Hyndman, R.J., Athanasopoulos, G.: Forecasting: principles and practice. OTexts
   (2018)
+
+\bibitem{leybourne1995testing}
+Leybourne, S.J., et~al.: Testing for unit roots using forward and reverse
+  dickey-fuller regressions. Oxford Bulletin of Economics and Statistics
+  57(4),  559--571 (1995)
+
+\bibitem{makridakis2018statistical}
+Makridakis, S., Spiliotis, E., Assimakopoulos, V.: Statistical and machine
+  learning forecasting methods: Concerns and ways forward. PloS one  13(3),
+  e0194889 (2018)
+
+\bibitem{makridakis2020m4}
+Makridakis, S., Spiliotis, E., Assimakopoulos, V.: The m4 competition: 100,000
+  time series and 61 forecasting methods. International Journal of Forecasting
+  36(1),  54--74 (2020)
+
+\bibitem{DBLP:conf/bpm/PollPRRR18}
+Poll, R., Polyvyanyy, A., Rosemann, M., R{\"{o}}glinger, M., Rupprecht, L.:
+  Process forecasting: Towards proactive business process management. In:
+  {BPM}. Lecture Notes in Computer Science, vol. 11080, pp. 496--512. Springer
+  (2018)
+
+\bibitem{seabold2010statsmodels}
+Seabold, S., Perktold, J.: Statsmodels: Econometric and statistical modeling
+  with python. In: Proceedings of the 9th Python in Science Conference.
+  vol.~57, p.~61. Austin, TX (2010)
 
 \bibitem{DBLP:conf/caise/TaxVRD17}
 Tax, N., Verenich, I., Rosa, M.L., Dumas, M.: Predictive business process
@@ -29,6 +63,11 @@ Tax, N., Verenich, I., Rosa, M.L., Dumas, M.: Predictive business process
 Teinemaa, I., Dumas, M., Rosa, M.L., Maggi, F.M.: Outcome-oriented predictive
   process monitoring: Review and benchmark. {ACM} Trans. Knowl. Discov. Data
   13(2),  17:1--17:57 (2019)
+
+\bibitem{thomakos2004naive}
+Thomakos, D.D., Guerard~Jr, J.B.: Naive, arima, nonparametric, transfer
+  function and var models: A comparison of forecasting performance.
+  International Journal of Forecasting  20(1),  53--67 (2004)
 
 \bibitem{weigend2018time}
 Weigend, A.S.: Time series prediction: forecasting the future and understanding
