@@ -83,8 +83,16 @@ The code is available %TODOhere.
 
 The cosine distance is reported in Tables \ref{tab:equisize_50} to \ref{tab:equitemp_100} where grayscale is used per event log to indicate the relative performance of each algorithm.
 Generally, it can be found that naive forecasts are performing the worst overall, meaning that the DF time series forecasting does enjoy performance gains from a more intricate use of autocorrelations and/or decomposition.
-Both decomposition techniques (SES and HW) perform adequately and on par with the best result for each dataset consistently for both interval and aggregation settings.
+Both decomposition techniques (SES and HW) perform similarly and adequately and consistently report the best result for each dataset for both interval and aggregation settings.
 The same holds for simple AR models, where the lag-parameter $q$ occassionally offers slightly different results although this does not seem to be related with the number of intervals.
+Results for ARIMA and GARCH models are mixed.
+For ARIMA, the 3 best performing parameter sets are reported (with $q$ and $p$ used with values [1,4] and $d$ with values [0,1,2]).
+They do not seem to be capable of outperforming simpeler AR models.
+Overall, the simplest models seem to perform best and do not require extensive parameter tuning.
+This might indicate that the time series do not exhibit intricate autocorrelations (ARIMA) and/or changing variance over time (GARCH). 
+
+Finally, it can be noted that the cosine distance is slightly higher for longer horizon values, especially for the BPI 12 event log for which Figure \ref{fig:bpi12ts} showed stronger activity towards the end of the series still.
+This phenomenom is typical of forecasting results as such predictions accumulate forecast errors.
 
 \input{result_table_50}
 \input{result_table_100}
