@@ -1,7 +1,7 @@
 \section{Preliminaries}\label{sec:preliminaries}
 
 An event log $L$ contains the recording of traces $\sigma \in L$ produced by an information system during its execution and contains a sequence of events.
-Events in these traces are part of the powerset over the alphabet of activities $\Sigma$ which exist in the information system $\langle e_1,...,e_{|\sigma|}\rangle \subseteq \Sigma^*$.
+Events in these traces are part of the power set over the alphabet of activities $\Sigma$ which exist in the information system $\langle e_1,...,e_{|\sigma|}\rangle \subseteq \Sigma^*$.
 Directly follows relations between activities in an event log can be expressed as a counting function over activity pairs $>_L: \Sigma\times\Sigma \to \mathbb{N}$ with $>_L(a_1,a_2) = |\{e_n=a_1,e_{n+1}=a_2, \,\forall e_i\in L\}|$.
 Directly follows (DF) relations can be calculated on traces and subtraces in a similar fashion.
 A Directly Follows Graph (DFG) of the process then exists as the weighted directed graph with the activities as nodes and their DF relations as weights $DFG=(\Sigma,>_L)$.
@@ -11,8 +11,8 @@ Many aggregations and bucketing techniques exist for next-step and goal-oriented
 In the proposed forecasting approach, however, not cross-sectional but time series data will be used.
 Hence, the evolution of the DFGs will be monitored over intervals of the log where multiple aggregations are possible:
 \begin{itemize}
-	\item Equitemporal aggregation: each sublog contains a part of the event log of equal time duration. This can lead to sparesely populated sublogs when the events' occurrences are not uniformly spread over time, however, is easy to apply (on new traces).
-	\item Equisized aggregation: each sublog cotnains a part of the event log of similar DF sum. This leads to well-populated sublogs, however, might be harder to apply when new data does not contain sufficient new DF occurrences.
+	\item Equitemporal aggregation: each sublog contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, is easy to apply (on new traces).
+	\item Equisized aggregation: each sublog contains a part of the event log of similar DF sum. This leads to well-populated sublogs, however, might be harder to apply when new data does not contain sufficient new DF occurrences.
 \end{itemize}
 Time series can be obtained for all $>_{Ls},\, Ls\subseteq L$ by applying the aforementioned aggregations.
 Tables \ref{tab:eventlog} and \ref{tab:aggregation} provide an example of both.

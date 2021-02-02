@@ -5,11 +5,11 @@ In this section, an experimental evaluation over X real-life event logs is repor
 \subsection{Re-sampling and test setup}
 Time series are obtained by specifying a number of intervals (i.e. time steps in the DF series) using either equitemporal or equidistant aggregation.
 Time series algorithms are parametric and sensitive to sample size requirements \cite{hanke2001business}.
-Depending on the number of parameters a models uses a minimum size of at least 50 steps is not uncommon although typically model performance should be monitored at a varying number of steps.
+Depending on the number of parameters a model uses, a minimum size of at least 50 steps is not uncommon, although typically model performance should be monitored at a varying number of steps.
 In the experimental evaluation, 50 and 100 intervals will be used.
 
 Three widely-used event logs are used (e.g. see []): the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log\footnote{\url{https://doi.org/10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5}} (RTFMP) event log.
-Each of these logs has a diverse set of chacteristics in terms of case and activity volume, as well as average trace length as can be seen in Table \ref{tab:eventlogs}.
+Each of these logs has a diverse set of characteristics in terms of case and activity volume, as well as average trace length as can be seen in Table \ref{tab:eventlogs}.
 \begin{table}[htbp]
   \centering
     \begin{tabular}{lrrr}
@@ -26,14 +26,14 @@ Each of these logs has a diverse set of chacteristics in terms of case and activ
 \end{table}%
 
 An example of applying the equisize or equitemporal aggregation to the event logs with 100 intervals results in the DF time series of Figures \ref{fig:bpi12ts} to \ref{fig:rtfmpts} where the most frequently and 50th most frequently occurring activity pairs are included.
-The equitemporal aggregation is based on a number of intervals over the whole timespan of the event log.
+The equitemporal aggregation is based on a number of intervals over the whole time span of the event log.
 When using this aggregation, a noticeable decline of DF pairs is visible towards the end of the series.
-This phenomenom is typical in event logs, as processes typically have particular endpoint activity, e.g., the closure of a loan application event in the BPI 12 log.
+This phenomenon is typical in event logs, as processes typically have particular endpoint activity, e.g., the closure of a loan application event in the BPI 12 log.
 The use of a cutoff of 50 for the most-frequently occurring DF pairs results in different time series as well.
 For the BPI 12 log, the frequency of the 50th pair is still relatively high, while for the other event logs the frequency of the DF pair is low and close to 0, making the series unsuitable for analysis with white noise series analysis techniques that assume stationarity.
-Ideally, every time series is tested using a stationairty test such as the Dickey-Fuller unit root test \cite{leybourne1995testing} and establish an appropriate lag order for differencing. 
-Furthermore for each algorithm, especially ARIMA-based models, (partial) autocorrelation could establish the ideal $p$ and $q$ parameters.
-However, for the sake of simplicity and to avoid tedious solutions where each activity pair has to have different parameters, various values are used $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
+Ideally, every time series is tested using a stationarity test such as the Dickey-Fuller unit root test \cite{leybourne1995testing} and an appropriate lag order is established for differencing. 
+Furthermore for each algorithm, especially ARIMA-based models, (partial) auto-correlation could establish the ideal $p$ and $q$ parameters.
+However, for the sake of simplicity and to avoid tedious solutions where each activity pair has to have different parameters, various values are used for $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
 
 \begin{figure}[tb]
 	\centering
@@ -72,27 +72,27 @@ While direct strategies with a separate model for every value of $h$ can be used
 Given that we want to evaluate the capability of the approach to accurately predict the evolution of the process model, the combination of all DF predictions to obtain a global DFG prediction is considered.
 The following two criteria are used:
 \begin{itemize}
-	\item Graph edit distance (GED) \cite{gao2010survey}: measures the similarity between two graphs based on the number of operations required to render the graphs isomorphic using edge and node insertions, deletion, or substitution.
+	\item Graph edit distance (GED) \cite{gao2010survey}: measures the similarity between two graphs based on the number of operations required to render the graphs isomorphic using edge and node insertions, deletions, or substitutions.
 	In this evaluation, it is used to check whether the forecasts are at least capable of returning similar structures by discerning whether a DF edge should exist between two activities regardless of how many directly follows relations occur.
-	\item Cosine distance: measures the distance between two vectors and are often used to compare graph distance . This metric is used to compare the DFG's edge weight matrices between the actual and predicted number of DF relations.
+	\item Cosine distance: measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFG's edge weight matrices between the actual and predicted number of DF relations.
 \end{itemize}
 
 \subsection{Results}
-All pre-processing was done in Python with a combination of pm4py\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the statsmodels package \cite{seabold2010statsmodels}. 
+All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
 The code is available %TODOhere.
 
 The cosine distance is reported in Tables \ref{tab:equisize_50} to \ref{tab:equitemp_100} where grayscale is used per event log to indicate the relative performance of each algorithm.
-Generally, it can be found that naive forecasts are performing the worst overall, meaning that the DF time series forecasting does enjoy performance gains from a more intricate use of autocorrelations and/or decomposition.
+Generally, it can be found that naive forecasts are performing the worst overall, meaning that the DF time series forecasting does enjoy performance gains from a more intricate use of auto-correlations and/or decomposition.
 Both decomposition techniques (SES and HW) perform similarly and adequately and consistently report the best result for each dataset for both interval and aggregation settings.
-The same holds for simple AR models, where the lag-parameter $q$ occassionally offers slightly different results although this does not seem to be related with the number of intervals.
+The same holds for simple AR models, where the lag-parameter $q$ occasionally offers slightly different results although this does not seem to be related with the number of intervals.
 Results for ARIMA and GARCH models are mixed.
 For ARIMA, the 3 best performing parameter sets are reported (with $q$ and $p$ used with values [1,4] and $d$ with values [0,1,2]).
-They do not seem to be capable of outperforming simpeler AR models.
+They do not seem to be capable of outperforming simpler AR models.
 Overall, the simplest models seem to perform best and do not require extensive parameter tuning.
-This might indicate that the time series do not exhibit intricate autocorrelations (ARIMA) and/or changing variance over time (GARCH). 
+This might indicate that the time series do not exhibit intricate auto-correlations (ARIMA) and/or changing variance over time (GARCH). 
 
 Finally, it can be noted that the cosine distance is slightly higher for longer horizon values, especially for the BPI 12 event log for which Figure \ref{fig:bpi12ts} showed stronger activity towards the end of the series still.
-This phenomenom is typical of forecasting results as such predictions accumulate forecast errors.
+This phenomenon is typical of forecasting results as such predictions accumulate forecast errors.
 
 \input{result_table_50}
 \input{result_table_100}
