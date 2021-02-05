@@ -1,14 +1,29 @@
 \section{Introduction}\label{sec:introduction}
 
-An initial outline of how process model forecasting can be achieved was presented by \cite{DBLP:conf/bpm/PollPRRR18}.
+Process mining...
 
-Various predictive techniques exist, many coined under the term of predictive process monitoring []...
+Various predictive techniques exist in the context of process mining, many coined under the term of predictive process monitoring [\cite{DBLP:conf/caise/TaxVRD17,DBLP:journals/tkdd/TeinemaaDRM19}...]...
 
 
-Contributions:
-\begin{itemize}
-	\item Propose the first process model-wide forecasting technique, which fits the the broader area of predictive process monitoring.
-	\item To this purpose, a variety of time series analysis techniques are applied to 3 real-life event logs with two event log aggregations that establish suitable time series. They predict the level of directly-follows occurrences for activity pairs over time.
-	\item A variety of considerations regarding the use of time series analysis for event logs are discussed, as well as the suitability of other predictive algorithms.
-	\item Results show that simple forecasting techniques often already perform adequately without extensive parameter tuning. More intricate models often fail to report consistent performance.
-\end{itemize}
+The approach presented in this paper entails a paradigm shift from these typical predictive applications which span remaining time, next-step, or goal-oriented prediction \cite{DBLP:conf/bpm/Francescomarino18} as the focus is not on the level of single outcomes at the level of the trace and/or event but on the model.
+These predictive techniques construct a predictive model to infer the future development of a trace, while the proposed forecasting approach infers a model which can generate future traces itself.
+This is achieved by an aggregation at the model level both at the input as well as the output of the learning process.
+This is done by using directly-follows relations over all activity pairs as a summary of the process model at various time steps, which are further extrapolated into the future using time series techniques.
+An initial attempt to set up process model forecasting was presented in \cite{de2020predictive}, however, the level of granularity of the forecasted horizons is coarser compared to the higher-frequency intervals used for time series underpinning the proposed approach.
+
+Where process mining focuses on learning the as-is model to inform the to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process which allows to shortcut potentially wrong outcomes \cite{DBLP:conf/bpm/PollPRRR18}.
+
+Next to the forecasting aspect, we also present how to visualize the forecasted models and show how they exist of adaptations to the current as-is model with a level of uncertainty through change graphs \cite{DBLP:conf/er/KabicherKR11}.
+
+This paper makes three contributions:
+\begin{enumerate}
+	\item Proposes the first process model forecasting technique, which fits the the broader area of predictive process monitoring;
+	\item Evaluates the quality of the forecasted process models using standard conformance checking techniques from process mining;
+	\item Confirms that the achieved quality of forecasts is useful for practical applications.
+\end{enumerate}
+
+To this purpose, a variety of time series analysis techniques are applied to 3 real-life event logs with two event log aggregations that establish suitable time series. They predict the level of directly-follows occurrences for activity pairs over time.
+A variety of considerations regarding the use of time series analysis for event logs are discussed, as well as the suitability of other predictive algorithms.
+Results show that simple forecasting techniques often already perform adequately without extensive parameter tuning. More intricate models often fail to report consistent performance.
+
+This paper is structured as follows...

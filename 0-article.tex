@@ -41,7 +41,7 @@
 \begin{document}
 \mainmatter      
 %
-\title{Process Model Forecasting Using Time Series}
+\title{From Time Series to Process Model Forecasting}
 %
 \titlerunning{Process Model Forecasting Using Time Series} 
 %
@@ -59,13 +59,14 @@ The University of Melbourne, Australia\\
 \maketitle              
 
 \begin{abstract}
-The surge in event-based data that is recorded during the execution of business processes is ever-growing and has spurred an array of process analytics techniques to support and improve information systems.
-A major strand of process analytics encompasses the prediction of the process' future development, mostly focusing on next-step, remaining time, or goal-oriented prediction.
+The surge in event-based data recorded during the execution of business processes is ever-growing and has spurred an array of process analytics techniques to support and improve information systems.
+A major strand of process analytics encompasses forecasting the process's future development, mostly focusing on next-step, remaining time, or goal-oriented predictions.
 The granularity of such approaches lies with the events in the process.
-This work approaches a process at the abstraction level of the process model, i.e., rather than fine-granular next-step prediction, the process' global behaviour is extrapolated into the future.
-To this purpose, event data is captured at various intervals and aggregated in the form of directly-follows graphs.
-Each activity pairs' relation within the graph is monitored over these intervals and their future values predicted using common time series techniques.
-Experiments show that these techniques are already well-capable of informing process analysts with the future status of the process.
+This work approaches process forecasting at the level of the entire process model.
+This allows process analysts to act on predicted global and longer-term changes such as impending drifts in the process model rather than fine-granular ones such as next-step prediction.
+To this purpose, event data is captured at various intervals and aggregated in directly-follows graphs.
+The relation of each activity pair in the graph is monitored over these intervals, and their future values forecasted using standard time-series techniques.
+Experiments confirm that this approach is already well-capable of informing process analysts about the future status of the process.
 \keywords{Process model forecasting, predictive process modelling, process mining, time series analysis}
 \end{abstract}
 %
@@ -73,6 +74,7 @@ Experiments show that these techniques are already well-capable of informing pro
 \input{2-preliminaries}
 \input{3-methodology}
 \input{4-evaluation}
+\input{5-discussion}
 %\input{5-related}
 %\input{6-conclusion}
 

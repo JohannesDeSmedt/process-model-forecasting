@@ -1,5 +1,6 @@
 \begin{table}[htbp]
   \centering
+  \resizebox{0.7\textwidth}{!}{
     \begin{tabular}{|cl|rrrrrrrrrr|}
 \cmidrule{3-12}    \multicolumn{1}{r}{} &       & \multicolumn{3}{c}{\textbf{AR}} & \multicolumn{3}{c}{\textbf{ARIMA}} &       &       &       &  \\
     \multicolumn{1}{r}{} & \textbf{h} & \multicolumn{1}{c}{\textbf{(1)}} & \multicolumn{1}{c}{\textbf{(2)}} & \multicolumn{1}{c}{\textbf{(4)}} & \multicolumn{1}{c}{\textbf{(2,1,1)}} & \multicolumn{1}{c}{\textbf{(2,1,2)}} & \multicolumn{1}{c}{\textbf{(4,1,1)}} & \multicolumn{1}{c}{\textbf{GARCH}} & \multicolumn{1}{c}{\textbf{HW}} & \multicolumn{1}{c}{\textbf{NAÏVE}} & \multicolumn{1}{c|}{\textbf{SES}} \\
@@ -22,7 +23,8 @@
           & \textbf{4} & \cellcolor[rgb]{ .839,  .839,  .839}0.598 & \cellcolor[rgb]{ .839,  .839,  .839}0.601 & \cellcolor[rgb]{ .827,  .827,  .827}0.659 & \cellcolor[rgb]{ .784,  .784,  .784}0.871 & \cellcolor[rgb]{ .745,  .745,  .745}1.064 & \cellcolor[rgb]{ .769,  .769,  .769}0.947 & \cellcolor[rgb]{ .831,  .831,  .831}0.639 & \cellcolor[rgb]{ .816,  .816,  .816}0.720 & \cellcolor[rgb]{ .663,  .663,  .663}1.464 & \cellcolor[rgb]{ .816,  .816,  .816}0.720 \\
           & \textbf{5} & \cellcolor[rgb]{ .851,  .851,  .851}0.541 & \cellcolor[rgb]{ .851,  .851,  .851}0.526 & \cellcolor[rgb]{ .843,  .843,  .843}0.570 & \cellcolor[rgb]{ .804,  .804,  .804}0.777 & \cellcolor[rgb]{ .753,  .753,  .753}1.017 & \cellcolor[rgb]{ .784,  .784,  .784}0.862 & \cellcolor[rgb]{ .843,  .843,  .843}0.580 & \cellcolor[rgb]{ .831,  .831,  .831}0.636 & \cellcolor[rgb]{ .71,  .71,  .71}1.232 & \cellcolor[rgb]{ .831,  .831,  .831}0.636 \\
     \bottomrule
-    \end{tabular}%
+    \end{tabular}
+    }
   \caption{Cosine distance results for $h=5$ and 50 intervals with equitemporal aggregation.}
   \label{tab:equitemp_50}%
 \end{table}%

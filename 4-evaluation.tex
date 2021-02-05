@@ -72,27 +72,16 @@ While direct strategies with a separate model for every value of $h$ can be used
 Given that we want to evaluate the capability of the approach to accurately predict the evolution of the process model, the combination of all DF predictions to obtain a global DFG prediction is considered.
 The following two criteria are used:
 \begin{itemize}
-	\item Graph edit distance (GED) \cite{gao2010survey}: measures the similarity between two graphs based on the number of operations required to render the graphs isomorphic using edge and node insertions, deletions, or substitutions.
-	In this evaluation, it is used to check whether the forecasts are at least capable of returning similar structures by discerning whether a DF edge should exist between two activities regardless of how many directly follows relations occur.
 	\item Cosine distance: measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFG's edge weight matrices between the actual and predicted number of DF relations.
+	\item Entropic relevance: a measure for stochastic conformance checking computed as the average number of bits required to compress each of the log’s traces based on the structure and information about relative likelihoods provided by the model \cite{DBLP:conf/icpm/PolyvyanyyMG20}.
 \end{itemize}
+These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behavior.
 
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
-The code is available %TODOhere.
+The code is available %TODO here.
 
-The cosine distance is reported in Tables \ref{tab:equisize_50} to \ref{tab:equitemp_100} where grayscale is used per event log to indicate the relative performance of each algorithm.
-Generally, it can be found that naive forecasts are performing the worst overall, meaning that the DF time series forecasting does enjoy performance gains from a more intricate use of auto-correlations and/or decomposition.
-Both decomposition techniques (SES and HW) perform similarly and adequately and consistently report the best result for each dataset for both interval and aggregation settings.
-The same holds for simple AR models, where the lag-parameter $q$ occasionally offers slightly different results although this does not seem to be related with the number of intervals.
-Results for ARIMA and GARCH models are mixed.
-For ARIMA, the 3 best performing parameter sets are reported (with $q$ and $p$ used with values [1,4] and $d$ with values [0,1,2]).
-They do not seem to be capable of outperforming simpler AR models.
-Overall, the simplest models seem to perform best and do not require extensive parameter tuning.
-This might indicate that the time series do not exhibit intricate auto-correlations (ARIMA) and/or changing variance over time (GARCH). 
 
-Finally, it can be noted that the cosine distance is slightly higher for longer horizon values, especially for the BPI 12 event log for which Figure \ref{fig:bpi12ts} showed stronger activity towards the end of the series still.
-This phenomenon is typical of forecasting results as such predictions accumulate forecast errors.
 
 \input{result_table_50}
 \input{result_table_100}
