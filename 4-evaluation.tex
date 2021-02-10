@@ -3,12 +3,14 @@ In this section, an experimental evaluation over X real-life event logs is repor
 
 
 \subsection{Re-sampling and test setup}
-Time series are obtained by specifying a number of intervals (i.e. time steps in the DF series) using either equitemporal or equidistant aggregation.
+Time series are obtained by specifying a number of intervals (i.e. time steps in the DF series) using either equitemporal or equisize aggregation.
 Time series algorithms are parametric and sensitive to sample size requirements \cite{hanke2001business}.
 Depending on the number of parameters a model uses, a minimum size of at least 50 steps is not uncommon, although typically model performance should be monitored at a varying number of steps.
-In the experimental evaluation, 50 and 100 intervals will be used.
+In the experimental evaluation, three different results will be given to study the impact of the number of steps. 
+100 intervals are established and time series models are trained over the first quarter, the first two quarters, and first three quarters of data points to forecast the second, third, and fourth quarter of data points respectively.
+This allows to both inspect the difference in result when only few data points are used, and whether there is a difference forecasting data points in the middle or towards the end of the trace.
 
-Three widely-used event logs are used (e.g. see []): the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log\footnote{\url{https://doi.org/10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5}} (RTFMP) event log.
+Three widely-used event logs are used: the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log\footnote{\url{https://doi.org/10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5}} (RTFMP) event log.
 Each of these logs has a diverse set of characteristics in terms of case and activity volume, as well as average trace length as can be seen in Table \ref{tab:eventlogs}.
 \begin{table}[htbp]
   \centering
@@ -25,7 +27,7 @@ Each of these logs has a diverse set of characteristics in terms of case and act
   \label{tab:eventlogs}%
 \end{table}%
 
-An example of applying the equisize or equitemporal aggregation to the event logs with 100 intervals results in the DF time series of Figures \ref{fig:bpi12ts} to \ref{fig:rtfmpts} where the most frequently and 50th most frequently occurring activity pairs are included.
+An example of applying the equisize or equitemporal aggregation to the event logs with 100 intervals results in the DF time series of Figures \ref{fig:bpi12ts} to \ref{fig:rtfmpts} where the most frequently occurring activity pairs are included.
 The equitemporal aggregation is based on a number of intervals over the whole time span of the event log.
 When using this aggregation, a noticeable decline of DF pairs is visible towards the end of the series.
 This phenomenon is typical in event logs, as processes typically have particular endpoint activity, e.g., the closure of a loan application event in the BPI 12 log.
@@ -38,9 +40,7 @@ However, for the sake of simplicity and to avoid tedious solutions where each ac
 \begin{figure}[tb]
 	\centering
 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/bpi12_1.png}}
-	\subfigure[50th most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/bpi12_2.png}}
 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/bpi12_1_t.png}}
-	\subfigure[50th most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/bpi12_2_t.png}}
 	\caption{BPI 12}
 	\label{fig:bpi12ts}
 \end{figure}
@@ -48,9 +48,7 @@ However, for the sake of simplicity and to avoid tedious solutions where each ac
 \begin{figure}[tb]
 	\centering
 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/sepsis_1.png}}
-	\subfigure[50th most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/sepsis_2.png}}
 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/sepsis_1_t.png}}
-	\subfigure[50th most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/sepsis_2_t.png}}
 	\caption{Sepsis}
 	\label{fig:sepsists}
 \end{figure}
@@ -58,9 +56,7 @@ However, for the sake of simplicity and to avoid tedious solutions where each ac
 \begin{figure}[tb]
 	\centering
 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_1.png}}
-	\subfigure[50th most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_2.png}}
 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_1_t.png}}
-\subfigure[50th most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_2_t.png}}
 	\caption{RTFMP}
 	\label{fig:rtfmpts}
 \end{figure}
@@ -81,9 +77,54 @@ These criteria balance a predictive and structural evaluation of the algorithms 
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
 The code is available %TODO here.
 
+The results are displayed in Figures \ref{fig:bpi12_equisize} to \ref{fig:rtfmp_equitemp}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/bpi12_cosine_equisize.png}
+    \includegraphics[width=\textwidth]{img/bpi12_entropic_equisize.png}
+    \caption{Results for equi-size aggregation for the BPI12 event log.}
+    \label{fig:bpi12_equisize}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/sepsis_cosine_equisize.png}
+    \includegraphics[width=\textwidth]{img/sepsis_entropic_equisize.png}
+    \caption{Results for equi-size aggregation for the sepsis event log.}
+    \label{fig:sepsis_equisize}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/rtfmp_cosine_equisize.png}
+    \includegraphics[width=\textwidth]{img/rtfmp_entropic_equisize.png}
+    \caption{Results for equi-size aggregation for the RTFMP event log.}
+    \label{fig:rtfmp_equisize}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/bpi12_cosine_equitemp.png}
+    \includegraphics[width=\textwidth]{img/bpi12_entropic_equitemp.png}
+    \caption{Results for equi-size aggregation for the BPI12 event log.}
+    \label{fig:bpi12_equitemp}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/sepsis_cosine_equitemp.png}
+    \includegraphics[width=\textwidth]{img/sepsis_entropic_equitemp.png}
+    \caption{Results for equi-size aggregation for the sepsis event log.}
+    \label{fig:sepsis_equitemp}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/rtfmp_cosine_equitemp.png}
+    \includegraphics[width=\textwidth]{img/rtfmp_entropic_equitemp.png}
+    \caption{Results for equi-size aggregation for the RTFMP event log.}
+    \label{fig:rtfmp_equitemp}
+\end{figure}
 
 
-\input{result_table_50}
-\input{result_table_100}
-\input{result_table_50_et}
-\input{result_table_100_et}
