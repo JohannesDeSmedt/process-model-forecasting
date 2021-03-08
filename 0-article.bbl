@@ -12,13 +12,19 @@ van~der Aalst, W.M.P., Rubin, V.A., Verbeek, H.M.W., van Dongen, B.F., Kindler,
 Bergmeir, C., Ben{\'\i}tez, J.M.: On the use of cross-validation for time
   series predictor evaluation. Information Sciences  191,  192--213 (2012)
 
+\bibitem{de2020predictive}
+De~Smedt, J., De~Weerdt, J., Mori, J., Ochi, M.: Predictive process model
+  monitoring using recurrent neural networks. arXiv preprint arXiv:2011.02819
+  (2020)
+
+\bibitem{DBLP:conf/bpm/Francescomarino18}
+Francescomarino, C.D., Ghidini, C., Maggi, F.M., Milani, F.: Predictive process
+  monitoring methods: Which one suits me best? In: {BPM}. Lecture Notes in
+  Computer Science, vol. 11080, pp. 462--479. Springer (2018)
+
 \bibitem{francq2019garch}
 Francq, C., Zakoian, J.M.: GARCH models: structure, statistical inference and
   financial applications. John Wiley \& Sons (2019)
-
-\bibitem{gao2010survey}
-Gao, X., Xiao, B., Tao, D., Li, X.: A survey of graph edit distance. Pattern
-  Analysis and applications  13(1),  113--129 (2010)
 
 \bibitem{hanke2001business}
 Hanke, J.E., Reitsch, A.G., Wichern, D.W.: Business forecasting, vol.~9.
@@ -27,6 +33,20 @@ Hanke, J.E., Reitsch, A.G., Wichern, D.W.: Business forecasting, vol.~9.
 \bibitem{hyndman2018forecasting}
 Hyndman, R.J., Athanasopoulos, G.: Forecasting: principles and practice. OTexts
   (2018)
+
+\bibitem{DBLP:conf/er/KabicherKR11}
+Kabicher, S., Kriglstein, S., Rinderle{-}Ma, S.: Visual change tracking for
+  business process models. In: {ER}. Lecture Notes in Computer Science, vol.
+  6998, pp. 504--513. Springer (2011)
+
+\bibitem{DBLP:conf/grapp/KriglsteinR12}
+Kriglstein, S., Rinderle{-}Ma, S.: Change visualizations in business processes
+  - requirements analysis. In: {GRAPP/IVAPP}. pp. 584--593. SciTePress (2012)
+
+\bibitem{leemans2019directly}
+Leemans, S., Poppe, E., Wynn, M.: Directly follows-based process mining: A
+  tool. In: Proceedings of the ICPM Demo Track 2019 (CEUR Workshop Proceedings,
+  Volume 2374). Vol. 2374. pp. 9--12. Sun SITE Central Europe (2019)
 
 \bibitem{leybourne1995testing}
 Leybourne, S.J., et~al.: Testing for unit roots using forward and reverse
@@ -49,10 +69,20 @@ Poll, R., Polyvyanyy, A., Rosemann, M., R{\"{o}}glinger, M., Rupprecht, L.:
   {BPM}. Lecture Notes in Computer Science, vol. 11080, pp. 496--512. Springer
   (2018)
 
+\bibitem{DBLP:conf/icpm/PolyvyanyyMG20}
+Polyvyanyy, A., Moffat, A., Garc{\'{\i}}a{-}Ba{\~{n}}uelos, L.: An entropic
+  relevance measure for stochastic conformance checking in process mining. In:
+  {ICPM}. pp. 97--104. {IEEE} (2020)
+
 \bibitem{seabold2010statsmodels}
 Seabold, S., Perktold, J.: Statsmodels: Econometric and statistical modeling
   with python. In: Proceedings of the 9th Python in Science Conference.
   vol.~57, p.~61. Austin, TX (2010)
+
+\bibitem{DBLP:conf/vl/Shneiderman96}
+Shneiderman, B.: The eyes have it: {A} task by data type taxonomy for
+  information visualizations. In: {VL}. pp. 336--343. {IEEE} Computer Society
+  (1996)
 
 \bibitem{DBLP:conf/caise/TaxVRD17}
 Tax, N., Verenich, I., Rosa, M.L., Dumas, M.: Predictive business process

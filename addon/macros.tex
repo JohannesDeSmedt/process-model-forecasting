@@ -1,0 +1,30 @@
+%
+% This one allows us to have a custom DESCRIPTION environment, in which numbers are preceded by a one-letter prefix.
+% A short description can be added as an additional parameter to the begin-environment command.
+% Successive references will have that very one-letter prefix + number with hyper-reference to it.
+%
+\RequirePackage{enumitem}
+%
+\def\requiprefix{R}
+%
+\newcounter{requicount}
+\newlist{requidescr}{description}{1}
+\setlist[requidescr,1]{%
+	before={\setcounter{requicount}{0}%
+		\renewcommand*\therequicount{\arabic{requicount}}},
+	,font=\bfseries{\requiprefix}\stepcounter{requicount}\therequicount\normalfont.~\bfseries
+}
+%
+% From https://tex.stackexchange.com/questions/1230/reference-name-of-description-list-item-in-latex
+\makeatletter
+\def\namedlabel#1{\begingroup
+	\def\@currentlabel{\requiprefix\therequicount}%
+	\phantomsection\label{#1}\endgroup
+}
+\makeatother
+%
+% Usage example:
+% \begin{requidescr} % CUSTOM from CDC, with love
+%   \item[\namedlabel{req:xaxis} Cluster on Y axis] Something more about that here.
+% \end{requidescr}
+% I especially like \ref{req:xaxis}.

@@ -10,6 +10,8 @@ Below, the most-widely used techniques are formalised.
 
 The naive forecast simply uses the last value of the time series $T$ as its prediction:
 \[\hat{y}_{T+h|T}=y_T\]
+An alternative naive forecast uses the average value of the time series $T$ as its prediction:
+\[\hat{y}_{T+h|T}=\frac{1}{T}\Sigma_i^{T} y_i\]
 
 A Simple Exponential Smoothing (SES) model uses a weighted average of past values where their importance exponentially decays as they are further into the past:
 \[\hat{y}_{T+h|T}=\alpha y_T + (1-\alpha)\hat{y}_{T|T-1}\]
@@ -56,11 +58,11 @@ with $\alpha_0 > 0$ and $\alpha_i,\beta_i\geq 0,\,i>0$.
 
 
 \subsection{Forecasting Directly Follows series}
-The trade-off exists between approaching DFGs as a multivariate collection of DF time series, or treating each DF separately.
+A trade-off exists between approaching DFGs as a multivariate collection of DF time series, or treating each DF separately.
 The aforementioned time series techniques all use univariate data in contrast with, e.g., Vector AutoRegression (VAR) models, or machine learning-based methods such as neural networks or random forest regressors.
 Despite their simple setup, it is debated whether traditional statistical approaches are necessarily outperformed by machine learning methods. 
 \cite{makridakis2018statistical} found that this is not the case on a large number of datasets and note that the machine learning algorithms require significantly more computational power, a result that was later reaffirmed although it is noted that hybrid solutions are effective \cite{makridakis2020m4}.
 Especially for longer horizons traditional time series approaches still outperform machine learning-based models.
 Given the potentially high number of DF pairs in a process' DFG, the proposed approach uses a time series algorithm for each DF series separately.
 VAR models would require a high number of intervals (at least as many as there are DFs times the lag coefficient) to be able to estimate all parameters of such a high number of time series despite their potentially strong performance \cite{thomakos2004naive}.
-Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs.
+Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs. Therefore, in this paper, traditional time series approaches are chosen and applied to the univariate DF time series where these have at least 1 observation per sublog/time step present.
