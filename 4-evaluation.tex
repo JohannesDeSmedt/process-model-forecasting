@@ -1,18 +1,21 @@
 \section{Experimental evaluation}\label{sec:experiment}
 In this section, an experimental evaluation over three real-life event logs is reported.
-
+The aim of the evaluation is to measure to what extent the forecasted process models/DFGs are capable of correctly reproducing actual future DFGs in terms of their arc weights (measured as deviations or errors), as well as whether they are capable of reproducing the same process model behaviour (measured against the behaviour of the baseline actual DFG).
+This is done at various parts of the trace, i.e. forecasts for the middle of the event logs up to the later parts of the event log to capture the robustness of the forecasting techniques in terms of the amount of data required to obtain good prediction results.
+This is done for both the equisized and equitemporal aggregation.
 
 \subsection{Re-sampling and test setup}
 In order to obtain training data, time series are obtained by specifying a number of intervals (i.e. time steps in the DF time series) using either equitemporal or equisize aggregation a described in Section \ref{sec:preliminaries}.
 Time series algorithms are parametric and sensitive to sample size requirements \cite{hanke2001business}.
 Depending on the number of parameters a model uses, a minimum size of at least 50 steps is not uncommon, although typically model performance should be monitored at a varying number of steps.
-In the experimental evaluation, the event logs are divided into 100 time steps with a varying share of training and test steps: $h=25$ meaning all test sets contain 25 intervals, and the training sets are varied from $ts=25$ to $ts=75$ steps, meaning the forecasts progressively target the prediction of steps 25-50 (the second quarter of intervals) over to 75-100 (the last quarter of intervals).
+In the experimental evaluation, the event logs are divided into 100 time steps with a varying share of training and test steps:. A constant and long horizon $h=25$ is used meaning all test sets contain 25 intervals, but the training sets are varied from $ts=25$ to $ts=75$ steps, meaning the forecasts progressively target the prediction of steps 25-50 (the second quarter of intervals) over to 75-100 (the last quarter of intervals).
 This allows to both inspect the difference in results when only few data points are used, and whether there is a difference forecasting data points in the middle or towards the end of the available event data.
+
 Resampling is applied based on a 10-fold cross-validation constructed following a rolling window approach for all horizon values $h\in[1,25]$ where a recursive strategy is used to iteratively obtain $\hat{y}_{t+h|T_{t+h-1}}$ with $(y_1,\dots,y_{T},\dots,\hat{y}_{t+h-1})$ \cite{weigend2018time}.
 10 training sets are hence constructed for each training set length $ts$ and exist from $(y_1,\dots,y_{T-h-f})$ and the test sets from $(y_{T-h-f+1},\dots,y_{T-f})$ with $f\in[0,9]$ the fold index \cite{bergmeir2012use}.
 While direct strategies with a separate model for every value of $h$ can be used as well and avoid the accumulation of error, they do not take into account statistical dependencies for subsequent predictions.
 
-Three widely-used event logs are used: the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log\footnote{\url{https://doi.org/10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5}} (RTFMP) event log.
+Three widely-used event logs are used: the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log (RTFMP) event log (see Section \ref{sec:2:motivation}.
 Each of these logs has a diverse set of characteristics in terms of case and activity volume, as well as average trace length as can be seen in Table \ref{tab:eventlogs}.
 \begin{table}[htbp]
   \centering
@@ -35,39 +38,23 @@ This phenomenon is typical in event logs, as processes typically have particular
 If the level of occurrences of the DF pair is low and close to 0, the series might be too unsuitable for analysis with white noise series analysis techniques that assume stationarity.
 Ideally, every time series is tested using a stationarity test such as the Dickey-Fuller unit root test \cite{leybourne1995testing} and an appropriate lag order is established for differencing. 
 Furthermore for each algorithm, especially ARIMA-based models, (partial) auto-correlation could establish the ideal $p$ and $q$ parameters.
-However, for the sake of simplicity and to avoid tedious solutions where each activity pair has to have different parameters, various values are used for $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
-
-% \begin{figure}[tb]
-% 	\centering
-% 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/bpi12_1.png}}
-% 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/bpi12_1_t.png}}
-% 	\caption{BPI 12}
-% 	\label{fig:bpi12ts}
-% \end{figure}
-
+However, for the sake of simplicity and to avoid solutions where each activity pair has to have different parameters, various values are used for $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
 \begin{figure}[tb]
 	\centering
-	\subfigure[Most common DF - equisize]{\includegraphics[width=0.39\textwidth]{./img/sepsis_1.png}}
-	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.39\textwidth]{./img/sepsis_1_t.png}}
-	\caption{Sepsis}
+	\subfigure[Most common DF - equisize]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1.png}}
+	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1_t.png}}
+	\caption{RTFMP}
 	\label{fig:sepsists}
 \end{figure}
 
-% \begin{figure}[tb]
-% 	\centering
-% 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_1.png}}
-% 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.49\textwidth]{./img/rtfmp_1_t.png}}
-% 	\caption{RTFMP}
-% 	\label{fig:rtfmpts}
-% \end{figure}
-
+\subsection{Evaluation criteria}
 Given that we want to evaluate the capability of the approach to accurately predict the evolution of the process model, the combination of all DF predictions to obtain a global DFG prediction is considered.
 The following two criteria are used:
 \begin{itemize}
 	\item \textbf{Cosine distance:} measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFG's edge weight matrices between the actual and predicted number of DF relations.
 	\item \textbf{Entropic relevance:} a measure for stochastic conformance checking computed as the average number of bits required to compress each of the log’s traces based on the structure and information about relative likelihoods provided by the model \cite{DBLP:conf/icpm/PolyvyanyyMG20}.
 \end{itemize}
-These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behavior.
+These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behaviour.
 In both cases a lower score is better.
 The entropic relevance also allows to compare the adequacy the forecasted DFGs with the actual DFGs.
 

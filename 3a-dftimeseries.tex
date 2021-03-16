@@ -1,0 +1,77 @@
+\subsection{From event log to directly-follows time series}\label{sec:3a:preliminaries}
+
+An event log $L$ which contains the recording of traces $\sigma \in L$ produced by an information system during its execution and contains a sequence of events.
+Events in these traces are part of the power set over the alphabet of activities $\Sigma$ which exist in the information system $\sigma=\langle e_1,...,e_{|\sigma|}\rangle \subseteq \Sigma^*$.
+Directly follows relations between activities in an event log can be expressed as a counting function over activity pairs $>_L: \Sigma\times\Sigma \to \mathbb{N}$ with $>_L(a_1,a_2) = |\{e_n=a_1,e_{n+1}=a_2, \,\forall e_i\in L\}|$.
+Directly follows relations can be calculated on traces and subtraces in a similar fashion.
+A Directly Follows Graph (DFG) of the process then exists as the weighted directed graph with the activities as nodes and their DF relations as weights $DFG=(\Sigma,>_L)$.
+
+In order to obtain predictions regarding the evolution of the DFG we construct DFGs for subsets of the log.
+Many aggregations and bucketing techniques exist for next-step and goal-oriented outcome prediction \cite{DBLP:conf/caise/TaxVRD17,DBLP:journals/tkdd/TeinemaaDRM19}, e.g., predictions at a point in the process rely on prefixes of a certain length, or particular state aggregations \cite{DBLP:journals/sosym/AalstRVDKG10}.
+In the proposed forecasting approach, however, not cross-sectional but time series data will be used.
+Hence, the evolution of the DFGs has to be monitored over intervals of the log where multiple aggregations are possible:
+\begin{itemize}
+	\item \textbf{Equitemporal aggregation:} each sublog $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, is easy to apply (on new traces).
+	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ contains a part of the event log where an equal amount of events (and hence DFs) occurred. This leads to well-populated sublogs, however, might be harder to apply when new data does not contain sufficient new DF occurrences.
+\end{itemize}
+Tables \ref{tab:eventlog} and \ref{tab:aggregation} provide an example of both.
+These aggregations can be useful for the following reasons.
+Firstly, equisized aggregation will have a higher likelihood of the underlying DFs approaching a white noise time series which is required for a wide range of time series techniques \cite{hyndman2018forecasting}. 
+Secondly, both offer a different threshold at which the forecasting can be applied in practice.
+In the case of equisized aggregation, it is easier to quickly construct a desired number of intervals by simply dividing an event log to obtain equisized intervals.
+However, most time series techniques rely on the time steps being of equal size which is embodied by the equitemporal aggregation \cite{kil1997optimum}.
+\begin{table}[htbp]
+   \begin{minipage}{.5\textwidth}
+   	\centering
+    \begin{tabular}{|l|l|l|}
+    \toprule
+    {Case ID} & Activity &Timestamp \\
+    \midrule
+    1     & A1    & 11:30 \\
+    1     & A2    & 11:45 \\
+    1     & A1    & 12:10 \\
+    1     & A2    & 12:15 \\
+    \midrule
+    2     & A1    & 11:40 \\
+    2     & A1    & 11:55 \\
+    \midrule
+    3     & A1    & 12:20 \\
+    3     & A2    & 12:40 \\
+    3     & A2    & 12:45 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Example event log with 3 traces and 2 activities.}
+\label{tab:eventlog}
+\end{minipage}
+  \begin{minipage}{.5\textwidth}
+  	\centering
+    \begin{tabular}{|l|c|c|}
+    \toprule
+    DF    & Equitemporal  & Equisized \\
+    \midrule
+    $<_{Ls}(A1,A1)$ & (0,1,0) & (1,0,0) \\
+    $<_{Ls}(A1,A2)$ & (1,1,1) & (1,1,1) \\
+    $<_{Ls}(A2,A1)$ & (0,1,0) & (0,1,0) \\
+    $<_{Ls}(A2,A2)$ & (0,0,1) & (0,0,1) \\
+    \bottomrule
+    \end{tabular}
+  \caption{An example of using an interval of 3 used for equitemporal aggregation (75 minutes in 3 intervals of 25 minutes) and equisized intervals of size 2 (6 DFs over 3 intervals)).}
+  \label{tab:aggregation}
+ \end{minipage}%
+\end{table}%
+
+Time series for the DFs $>_{T_{a_1,a_2}}=\langle >_{L_1}(a_1,a_2),\dots,>_{L_s}(a_1,a_2)\rangle, \forall a_1,a_2\in \Sigma\times\Sigma$ can be obtained for all activity pairs where $\bigcup^{L_s}_{L_1}=L$ by applying the aforementioned aggregations to obtain the sublogs.
+
+\subsection{From DF time series to process model forecasts}
+
+A trade-off exists between approaching DFGs as a multivariate collection of DF time series, or treating each DF separately.
+The aforementioned time series techniques all use univariate data in contrast with, e.g., Vector AutoRegression (VAR) models, or machine learning-based methods such as neural networks or random forest regressors.
+Despite their simple setup, it is debated whether traditional statistical approaches are necessarily outperformed by machine learning methods. 
+\cite{makridakis2018statistical} found that this is not the case on a large number of datasets and note that the machine learning algorithms require significantly more computational power, a result that was later reaffirmed although it is noted that hybrid solutions are effective \cite{makridakis2020m4}.
+Especially for longer horizons traditional time series approaches still outperform machine learning-based models.
+Given the potentially high number of DF pairs in a process' DFG, the proposed approach uses a time series algorithm for each DF series separately.
+VAR models would require a high number of intervals (at least as many as there are DFs times the lag coefficient) to be able to estimate all parameters of such a high number of time series despite their potentially strong performance \cite{thomakos2004naive}.
+Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs. Therefore, in this paper, traditional time series approaches are chosen and applied to the univariate DF time series where these have at least 1 observation per sublog/time step present.
+
+Therefore, in this paper, we propose to use univariate time series techniques which can be used to forecast process models represented by DFGs by applying them to each DF time series separately to obtain a forecasted directly-follows graph $\widehat{DFG}_{T+h}=(\Sigma,\{\hat{>}_{T+h|T_{a_1,a_2}}|a_1,a_2\in \Sigma\times\Sigma\})$.
+

@@ -3,49 +3,53 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 0-article.aux
 The style file: splncs03.bst
 Database file #1: lib.bib
+Repeated entry---line 3426 of file lib.bib
+ : @inproceedings{DBLP:conf/icsoc/Rogge-SoltiW13
+ :                                              ,
+I'm skipping whatever remains of this entry
 Repeated entry---line 5162 of file lib.bib
  : @inproceedings{DBLP:conf/bpm/PollPRRR18
  :                                        ,
 I'm skipping whatever remains of this entry
-You've used 21 entries,
+You've used 23 entries,
             2785 wiz_defined-function locations,
-            719 strings with 8511 characters,
-and the built_in function-call counts, 12490 in all, are:
-= -- 1074
-> -- 347
-< -- 29
-+ -- 146
-- -- 122
-* -- 761
-:= -- 1557
-add.period$ -- 39
-call.type$ -- 21
-change.case$ -- 137
+            732 strings with 8807 characters,
+and the built_in function-call counts, 13543 in all, are:
+= -- 1165
+> -- 366
+< -- 31
++ -- 154
+- -- 128
+* -- 820
+:= -- 1686
+add.period$ -- 44
+call.type$ -- 23
+change.case$ -- 150
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 1111
-empty$ -- 1121
-format.name$ -- 141
-if$ -- 2778
+cite$ -- 23
+duplicate$ -- 1213
+empty$ -- 1231
+format.name$ -- 148
+if$ -- 3018
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 229
-newline$ -- 68
-num.names$ -- 42
-pop$ -- 412
+int.to.str$ -- 23
+missing$ -- 248
+newline$ -- 74
+num.names$ -- 46
+pop$ -- 450
 preamble$ -- 1
-purify$ -- 102
+purify$ -- 109
 quote$ -- 0
-skip$ -- 373
+skip$ -- 405
 stack$ -- 0
-substring$ -- 740
-swap$ -- 637
-text.length$ -- 29
+substring$ -- 798
+swap$ -- 686
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 84
 warning$ -- 0
-while$ -- 108
-width$ -- 23
-write$ -- 224
-(There was 1 error message)
+while$ -- 117
+width$ -- 25
+write$ -- 246
+(There were 2 error messages)

@@ -2,6 +2,10 @@
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
+\bibitem{van2016data}
+van~der Aalst, W.: {Data Science in Action}. In: Process Mining. Springer
+  (2016)
+
 \bibitem{DBLP:journals/sosym/AalstRVDKG10}
 van~der Aalst, W.M.P., Rubin, V.A., Verbeek, H.M.W., van Dongen, B.F., Kindler,
   E., G{\"{u}}nther, C.W.: Process mining: a two-step approach to balance
@@ -73,6 +77,11 @@ Poll, R., Polyvyanyy, A., Rosemann, M., R{\"{o}}glinger, M., Rupprecht, L.:
 Polyvyanyy, A., Moffat, A., Garc{\'{\i}}a{-}Ba{\~{n}}uelos, L.: An entropic
   relevance measure for stochastic conformance checking in process mining. In:
   {ICPM}. pp. 97--104. {IEEE} (2020)
+
+\bibitem{DBLP:conf/icsoc/Rogge-SoltiW13}
+Rogge-Solti, A., Weske, M.: {Prediction of Remaining Service Execution Time
+  Using Stochastic Petri Nets with Arbitrary Firing Delays}. In: ICSOC. Lecture
+  Notes in Computer Science, vol. 8274, pp. 389--403. Springer (2013)
 
 \bibitem{seabold2010statsmodels}
 Seabold, S., Perktold, J.: Statsmodels: Econometric and statistical modeling

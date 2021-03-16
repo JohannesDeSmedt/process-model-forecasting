@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.9)  4 MAR 2021 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.9)  9 MAR 2021 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1288,129 +1288,120 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 63.
 
-(./1-introduction.tex [1
+Names of authors too long for running head. Please supply
+a shorter form with \authorrunning prior to \maketitle
+(./1-introduction.tex
+<img/DFG1.png, id=29, 353.1594pt x 167.1846pt>
+File: img/DFG1.png Graphic file (type png)
+<use img/DFG1.png>
+Package pdftex.def Info: img/DFG1.png  used on input line 18.
+(pdftex.def)             Requested size: 104.1381pt x 49.29861pt.
+<img/DFG2.png, id=31, 353.1594pt x 167.1846pt>
+File: img/DFG2.png Graphic file (type png)
+<use img/DFG2.png>
+Package pdftex.def Info: img/DFG2.png  used on input line 20.
+(pdftex.def)             Requested size: 104.1381pt x 49.29861pt.
+ [1
 
 
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./2-p
-reliminaries.tex [2]
+{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./i
+mg/DFG1.png> <./img/DFG2.png>]) (./2-preliminaries.tex
 Overfull \hbox (2.05554pt too wide) in paragraph at lines 21--58
 []$[]$ $[]$ 
  []
 
-) (./3-methodology.tex [3] [4]) (./4-evaluation.tex [5] [6]
-<./img/bpi12_1.png, id=64, 462.528pt x 346.896pt>
-File: ./img/bpi12_1.png Graphic file (type png)
-<use ./img/bpi12_1.png>
-Package pdftex.def Info: ./img/bpi12_1.png  used on input line 42.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
-<./img/bpi12_1_t.png, id=66, 462.528pt x 346.896pt>
-File: ./img/bpi12_1_t.png Graphic file (type png)
-<use ./img/bpi12_1_t.png>
-Package pdftex.def Info: ./img/bpi12_1_t.png  used on input line 43.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
-<./img/sepsis_1.png, id=67, 462.528pt x 346.896pt>
+) (./3-methodology.tex [3] [4] [5]) (./4-evaluation.tex [6] [7]
+<./img/sepsis_1.png, id=77, 462.528pt x 346.896pt>
 File: ./img/sepsis_1.png Graphic file (type png)
 <use ./img/sepsis_1.png>
 Package pdftex.def Info: ./img/sepsis_1.png  used on input line 50.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
-<./img/sepsis_1_t.png, id=68, 462.528pt x 346.896pt>
+(pdftex.def)             Requested size: 135.37796pt x 101.53415pt.
+<./img/sepsis_1_t.png, id=78, 462.528pt x 346.896pt>
 File: ./img/sepsis_1_t.png Graphic file (type png)
 <use ./img/sepsis_1_t.png>
 Package pdftex.def Info: ./img/sepsis_1_t.png  used on input line 51.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
-<./img/rtfmp_1.png, id=69, 462.528pt x 346.896pt>
-File: ./img/rtfmp_1.png Graphic file (type png)
-<use ./img/rtfmp_1.png>
-Package pdftex.def Info: ./img/rtfmp_1.png  used on input line 58.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
-<./img/rtfmp_1_t.png, id=70, 462.528pt x 346.896pt>
-File: ./img/rtfmp_1_t.png Graphic file (type png)
-<use ./img/rtfmp_1_t.png>
-Package pdftex.def Info: ./img/rtfmp_1_t.png  used on input line 59.
-(pdftex.def)             Requested size: 170.09244pt x 127.5714pt.
- [7 <./img/bpi12_1.png> <./img/bpi12_1_t.png> <./img/sepsis_1.png> <./img/sepsi
-s_1_t.png>]
-<img/bpi12_cosine_equisize.png, id=82, 742.9356pt x 223.3143pt>
+(pdftex.def)             Requested size: 135.37796pt x 101.53415pt.
+ [8 <./img/sepsis_1.png> <./img/sepsis_1_t.png>]
+<img/bpi12_cosine_equisize.png, id=84, 742.9356pt x 223.3143pt>
 File: img/bpi12_cosine_equisize.png Graphic file (type png)
 <use img/bpi12_cosine_equisize.png>
-Package pdftex.def Info: img/bpi12_cosine_equisize.png  used on input line 84.
+Package pdftex.def Info: img/bpi12_cosine_equisize.png  used on input line 103.
+
 (pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/bpi12_entropic_equisize.png, id=83, 743.6583pt x 223.3143pt>
+<img/bpi12_entropic_equisize.png, id=85, 743.6583pt x 223.3143pt>
 File: img/bpi12_entropic_equisize.png Graphic file (type png)
 <use img/bpi12_entropic_equisize.png>
-Package pdftex.def Info: img/bpi12_entropic_equisize.png  used on input line 85
-.
+Package pdftex.def Info: img/bpi12_entropic_equisize.png  used on input line 10
+4.
 (pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-<img/sepsis_cosine_equisize.png, id=84, 742.9356pt x 223.3143pt>
+<img/sepsis_cosine_equisize.png, id=86, 742.9356pt x 223.3143pt>
 File: img/sepsis_cosine_equisize.png Graphic file (type png)
 <use img/sepsis_cosine_equisize.png>
-Package pdftex.def Info: img/sepsis_cosine_equisize.png  used on input line 92.
-
-(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/sepsis_entropic_equisize.png, id=85, 743.6583pt x 223.3143pt>
-File: img/sepsis_entropic_equisize.png Graphic file (type png)
-<use img/sepsis_entropic_equisize.png>
-Package pdftex.def Info: img/sepsis_entropic_equisize.png  used on input line 9
-3.
-(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-<img/rtfmp_cosine_equisize.png, id=86, 742.9356pt x 223.3143pt>
-File: img/rtfmp_cosine_equisize.png Graphic file (type png)
-<use img/rtfmp_cosine_equisize.png>
-Package pdftex.def Info: img/rtfmp_cosine_equisize.png  used on input line 100.
-
-(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/rtfmp_entropic_equisize.png, id=87, 743.6583pt x 223.3143pt>
-File: img/rtfmp_entropic_equisize.png Graphic file (type png)
-<use img/rtfmp_entropic_equisize.png>
-Package pdftex.def Info: img/rtfmp_entropic_equisize.png  used on input line 10
-1.
-(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-<img/bpi12_cosine_equitemp.png, id=88, 742.9356pt x 223.3143pt>
-File: img/bpi12_cosine_equitemp.png Graphic file (type png)
-<use img/bpi12_cosine_equitemp.png>
-Package pdftex.def Info: img/bpi12_cosine_equitemp.png  used on input line 108.
-
-(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/bpi12_entropic_equitemp.png, id=89, 743.6583pt x 223.3143pt>
-File: img/bpi12_entropic_equitemp.png Graphic file (type png)
-<use img/bpi12_entropic_equitemp.png>
-Package pdftex.def Info: img/bpi12_entropic_equitemp.png  used on input line 10
-9.
-(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-<img/sepsis_cosine_equitemp.png, id=90, 742.9356pt x 223.3143pt>
-File: img/sepsis_cosine_equitemp.png Graphic file (type png)
-<use img/sepsis_cosine_equitemp.png>
-Package pdftex.def Info: img/sepsis_cosine_equitemp.png  used on input line 116
+Package pdftex.def Info: img/sepsis_cosine_equisize.png  used on input line 111
 .
 (pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/sepsis_entropic_equitemp.png, id=91, 743.6583pt x 223.3143pt>
+<img/sepsis_entropic_equisize.png, id=87, 743.6583pt x 223.3143pt>
+File: img/sepsis_entropic_equisize.png Graphic file (type png)
+<use img/sepsis_entropic_equisize.png>
+Package pdftex.def Info: img/sepsis_entropic_equisize.png  used on input line 1
+12.
+(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
+<img/rtfmp_cosine_equisize.png, id=88, 742.9356pt x 223.3143pt>
+File: img/rtfmp_cosine_equisize.png Graphic file (type png)
+<use img/rtfmp_cosine_equisize.png>
+Package pdftex.def Info: img/rtfmp_cosine_equisize.png  used on input line 119.
+
+(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
+<img/rtfmp_entropic_equisize.png, id=89, 743.6583pt x 223.3143pt>
+File: img/rtfmp_entropic_equisize.png Graphic file (type png)
+<use img/rtfmp_entropic_equisize.png>
+Package pdftex.def Info: img/rtfmp_entropic_equisize.png  used on input line 12
+0.
+(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
+<img/bpi12_cosine_equitemp.png, id=90, 742.9356pt x 223.3143pt>
+File: img/bpi12_cosine_equitemp.png Graphic file (type png)
+<use img/bpi12_cosine_equitemp.png>
+Package pdftex.def Info: img/bpi12_cosine_equitemp.png  used on input line 127.
+
+(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
+<img/bpi12_entropic_equitemp.png, id=91, 743.6583pt x 223.3143pt>
+File: img/bpi12_entropic_equitemp.png Graphic file (type png)
+<use img/bpi12_entropic_equitemp.png>
+Package pdftex.def Info: img/bpi12_entropic_equitemp.png  used on input line 12
+8.
+(pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
+<img/sepsis_cosine_equitemp.png, id=92, 742.9356pt x 223.3143pt>
+File: img/sepsis_cosine_equitemp.png Graphic file (type png)
+<use img/sepsis_cosine_equitemp.png>
+Package pdftex.def Info: img/sepsis_cosine_equitemp.png  used on input line 135
+.
+(pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
+<img/sepsis_entropic_equitemp.png, id=93, 743.6583pt x 223.3143pt>
 File: img/sepsis_entropic_equitemp.png Graphic file (type png)
 <use img/sepsis_entropic_equitemp.png>
 Package pdftex.def Info: img/sepsis_entropic_equitemp.png  used on input line 1
-17.
+36.
 (pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-<img/rtfmp_cosine_equitemp.png, id=92, 742.9356pt x 223.3143pt>
+<img/rtfmp_cosine_equitemp.png, id=94, 742.9356pt x 223.3143pt>
 File: img/rtfmp_cosine_equitemp.png Graphic file (type png)
 <use img/rtfmp_cosine_equitemp.png>
-Package pdftex.def Info: img/rtfmp_cosine_equitemp.png  used on input line 124.
+Package pdftex.def Info: img/rtfmp_cosine_equitemp.png  used on input line 143.
 
 (pdftex.def)             Requested size: 347.12354pt x 104.34096pt.
-<img/rtfmp_entropic_equitemp.png, id=93, 743.6583pt x 223.3143pt>
+<img/rtfmp_entropic_equitemp.png, id=95, 743.6583pt x 223.3143pt>
 File: img/rtfmp_entropic_equitemp.png Graphic file (type png)
 <use img/rtfmp_entropic_equitemp.png>
-Package pdftex.def Info: img/rtfmp_entropic_equitemp.png  used on input line 12
-5.
+Package pdftex.def Info: img/rtfmp_entropic_equitemp.png  used on input line 14
+4.
 (pdftex.def)             Requested size: 347.12354pt x 104.23534pt.
-)
-(./5-visualisation.tex [8 <./img/rtfmp_1.png> <./img/rtfmp_1_t.png>] [9 <./img/
-bpi12_cosine_equisize.png> <./img/bpi12_entropic_equisize.png> <./img/sepsis_co
-sine_equisize.png> <./img/sepsis_entropic_equisize.png>] [10 <./img/rtfmp_cosin
-e_equisize.png> <./img/rtfmp_entropic_equisize.png> <./img/bpi12_cosine_equitem
-p.png> <./img/bpi12_entropic_equitemp.png>] [11 <./img/sepsis_cosine_equitemp.p
-ng> <./img/sepsis_entropic_equitemp.png> <./img/rtfmp_cosine_equitemp.png> <./i
-mg/rtfmp_entropic_equitemp.png>]
-Overfull \hbox (1.79668pt too wide) in paragraph at lines 24--25
-[]\OT1/cmr/m/n/10 The vi-su-al-i-sa-tion sys-tem should as-sist the
+) (./5-visualisation.tex [9] [10 <./img/bpi12_cosine_equisize.png> <./img/bpi12
+_entropic_equisize.png> <./img/sepsis_cosine_equisize.png> <./img/sepsis_entrop
+ic_equisize.png>] [11 <./img/rtfmp_cosine_equisize.png> <./img/rtfmp_entropic_e
+quisize.png> <./img/bpi12_cosine_equitemp.png> <./img/bpi12_entropic_equitemp.p
+ng>] [12 <./img/sepsis_cosine_equitemp.png> <./img/sepsis_entropic_equitemp.png
+> <./img/rtfmp_cosine_equitemp.png> <./img/rtfmp_entropic_equitemp.png>]
+Overfull \hbox (2.29668pt too wide) in paragraph at lines 28--29
+[]\OT1/cmr/m/n/10 The vi-su-al-iza-tion sys-tem should as-sist the
  []
 
 <img/vis/vis-system-two-brushes.png, id=121, 1503.6175pt x 906.38625pt>
@@ -1419,51 +1410,45 @@ File: img/vis/vis-system-two-brushes.png Graphic file (type png)
 Package pdftex.def Info: img/vis/vis-system-two-brushes.png  used on input line
  35.
 (pdftex.def)             Requested size: 347.12354pt x 209.23895pt.
-<img/vis/vis-system-one-brush.png, id=122, 1499.6025pt x 913.4125pt>
-File: img/vis/vis-system-one-brush.png Graphic file (type png)
-<use img/vis/vis-system-one-brush.png>
-Package pdftex.def Info: img/vis/vis-system-one-brush.png  used on input line 4
-2.
-(pdftex.def)             Requested size: 347.12354pt x 211.43239pt.
-) (./6-discussion.tex) (./0-article.bbl [12] [13 <./img/vis/vis-system-two-brus
-hes.png>] [14 <./img/vis/vis-system-one-brush.png>] [15]) [16] (./0-article.aux
-)
+) [13] (./0-article.bbl [14 <./img/vis/vis-system-two-brushes.png>]) [15]
+(./0-article.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 36923 strings out of 492616
- 857755 string characters out of 6129482
- 1015829 words of memory out of 5000000
- 40236 multiletter control sequences out of 15000+600000
+ 36904 strings out of 492616
+ 857281 string characters out of 6129482
+ 1017829 words of memory out of 5000000
+ 40223 multiletter control sequences out of 15000+600000
  540008 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,13n,96p,833b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,96p,1221b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
-/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 0-article.pdf (16 pages, 1373292 bytes).
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2019/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on 0-article.pdf (15 pages, 1139050 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
+ 200 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 

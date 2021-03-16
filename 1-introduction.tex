@@ -5,36 +5,24 @@ Process mining \cite{van2016data} is one of the strongest-growing fields in info
 More recently, predictive process analysis techniques, often referred to as predictive process monitoring, have surfaced to support the prediction of the next event/activity in the process, the remaining time, or other goal-oriented outcomes \cite{DBLP:conf/bpm/Francescomarino18}.
 Various predictive techniques exist, which make use of various analytics architectures including neural networks \cite{DBLP:conf/caise/TaxVRD17}, stochastic Petri nets \cite{DBLP:conf/icsoc/Rogge-SoltiW13}, or general classification techniques \cite{DBLP:journals/tkdd/TeinemaaDRM19}.
 
-The approach presented in this paper entails a paradigm shift from these typical predictive applications as the focus is not on the level of single outcomes at the level of the trace and/or event but on the model.
-These predictive techniques construct a predictive model to infer the future development of a trace, while the proposed forecasting approach infers a model which can generate future traces itself.
-This is achieved by an aggregation at the model level both at the input as well as the output of the learning process.
-This is done by using directly-follows (DF) relations over all activity pairs as a summary of the process model at various time steps, which are further extrapolated into the future using time series techniques.
-Consider the example in Figure \ref{fig:dfg_example_intro} where both an actual directly-follows graph (DFG) is presented constructed after less than half of the events has occurred in the system and a DFG containing the predicted relations towards a later phase of the process based on the same data at hand.
-Being able to construct such a predictions allows stakeholders to make estimates regarding how the overall system will evolve and allows to answer questions such as: How many more applications will be received? Will the backlog of verifications be reduced? Will all applications be closed? Will the ratio of immediately close-able applications stay the same?
-These offer a longer-term and more global view compared to the next- or near-next-step predictions, although can be enriched with remaining time predictions.
-\begin{figure}
-    \centering
-    \subfigure[DFG - actual]{
-    \includegraphics[width=0.3\textwidth]{img/DFG1.png}}
-    \subfigure[DFG - predicted]{
-    \includegraphics[width=0.3\textwidth]{img/DFG2.png}}
-    \caption{Directly-follows graphs of the beginning of the process, as well as a forecast closer towards the end of the process.}
-    \label{fig:dfg_example_intro}
-\end{figure}
+These approaches, however, focus on a short time horizon (next-step/time-to-next-step prediction often fails to perform well over longer time horizons \cite{park2020predicting}) or a well-scoped outcome in terms of prediction \cite{DBLP:journals/tkdd/TeinemaaDRM19}.
+This limits the range of insights that can be obtained as process analysts often strive to obtain a more evolutionary image of the process \cite{DBLP:conf/bpm/PollPRRR18} which captures the evolution of many factors at the same time. 
+A process (model) is ever-changing and while the outcome can be predicted accurately this might still obfuscate the underlying drivers which might not be fully understood by knowing which next activities/steps are likely due in the process.
 
-An initial attempt to set up process model forecasting was presented in \cite{de2020predictive}, however, the level of granularity of the forecasted horizons is coarser compared to the higher-frequency intervals used for time series underpinning the proposed approach.
-Where process mining focuses on learning the as-is model to inform the to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process which allows to shortcut potentially wrong outcomes \cite{DBLP:conf/bpm/PollPRRR18}.
+This paper envisages a paradigm shift from these typical predictive applications as its focus is not on the level of single outcomes at the level of the trace and/or event but on the model.
+Current predictive techniques construct a predictive model to infer the future development of a trace, while the proposed forecasting approach infers the future development of a model which can generate future traces itself.
+This is achieved by an aggregation at the model level both at the input as well as the output of the learning process by using directly-follows (DF) relations over all activity pairs as a summary of the process model at various time steps, which are further extrapolated into the future using time series techniques modelling the number of DF occurrences over time and over longer horizons.
 
-Next to the forecasting aspect, we also present how to visualize the forecasted models and show how they exist of adaptations to the current as-is model with a level of uncertainty through change graphs \cite{DBLP:conf/er/KabicherKR11}.
+Given that the forecasting of many relations at once over a longer horizon results in a vast amount of information, we also present how to visualise the forecasted models and show how they exist of adaptations to the current as-is model \cite{DBLP:conf/er/KabicherKR11}.
 
-This paper makes three contributions:
+This paper makes four contributions:
 \begin{enumerate}
 	\item Proposes the first process model forecasting technique, which fits the the broader area of predictive process monitoring;
 	\item Evaluates the quality of the forecasted process models using standard conformance checking techniques from process mining;
 	\item Confirms that the achieved quality of forecasts is useful for practical applications.
+	\item Provides a Process Change Exploration (PCE) system which allows process analysts to compare as-is and forecasted process models.
 \end{enumerate}
-
-To this purpose, a variety of time series analysis techniques are applied to 3 real-life event logs with two event log aggregations that establish suitable time series. They predict the level of directly-follows occurrences for activity pairs over time.
+To this purpose, a variety of time series analysis techniques are applied to 3 real-life event logs with two event log aggregations that establish suitable time series. 
 A variety of considerations regarding the use of time series analysis for event logs are discussed, as well as the suitability of other predictive algorithms.
 Results show that simple forecasting techniques often already perform adequately without extensive parameter tuning. More intricate models often fail to report consistent performance.
 
