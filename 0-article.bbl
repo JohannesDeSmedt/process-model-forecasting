@@ -16,11 +16,6 @@ van~der Aalst, W.M.P., Rubin, V.A., Verbeek, H.M.W., van Dongen, B.F., Kindler,
 Bergmeir, C., Ben{\'\i}tez, J.M.: On the use of cross-validation for time
   series predictor evaluation. Information Sciences  191,  192--213 (2012)
 
-\bibitem{de2020predictive}
-De~Smedt, J., De~Weerdt, J., Mori, J., Ochi, M.: Predictive process model
-  monitoring using recurrent neural networks. arXiv preprint arXiv:2011.02819
-  (2020)
-
 \bibitem{DBLP:conf/bpm/Francescomarino18}
 Francescomarino, C.D., Ghidini, C., Maggi, F.M., Milani, F.: Predictive process
   monitoring methods: Which one suits me best? In: {BPM}. Lecture Notes in
@@ -42,6 +37,13 @@ Hyndman, R.J., Athanasopoulos, G.: Forecasting: principles and practice. OTexts
 Kabicher, S., Kriglstein, S., Rinderle{-}Ma, S.: Visual change tracking for
   business process models. In: {ER}. Lecture Notes in Computer Science, vol.
   6998, pp. 504--513. Springer (2011)
+
+\bibitem{kil1997optimum}
+Kil, R.M., Park, S.H., Kim, S.: Optimum window size for time series prediction.
+  In: Proceedings of the 19th Annual International Conference of the IEEE
+  Engineering in Medicine and Biology Society.'Magnificent Milestones and
+  Emerging Opportunities in Medical Engineering'(Cat. No. 97CH36136). vol.~4,
+  pp. 1421--1424. IEEE (1997)
 
 \bibitem{DBLP:conf/grapp/KriglsteinR12}
 Kriglstein, S., Rinderle{-}Ma, S.: Change visualizations in business processes
@@ -66,6 +68,10 @@ Makridakis, S., Spiliotis, E., Assimakopoulos, V.: Statistical and machine
 Makridakis, S., Spiliotis, E., Assimakopoulos, V.: The m4 competition: 100,000
   time series and 61 forecasting methods. International Journal of Forecasting
   36(1),  54--74 (2020)
+
+\bibitem{park2020predicting}
+Park, G., Song, M.: Predicting performances in business processes using deep
+  neural networks. Decision Support Systems  129,  113191 (2020)
 
 \bibitem{DBLP:conf/bpm/PollPRRR18}
 Poll, R., Polyvyanyy, A., Rosemann, M., R{\"{o}}glinger, M., Rupprecht, L.:
