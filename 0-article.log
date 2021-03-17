@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.6)  17 MAR 2021 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.6)  17 MAR 2021 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1265,14 +1265,14 @@ Package pdftex.def Info: img/rtfmp_entropic_equitemp.png  used on input line 13
 g/bpi12_cosine_equitemp.png> <./img/bpi12_entropic_equitemp.png>] [14 <./img/se
 psis_cosine_equitemp.png> <./img/sepsis_entropic_equitemp.png> <./img/rtfmp_cos
 ine_equitemp.png> <./img/rtfmp_entropic_equitemp.png>]
-<img/vis/actual-predicted-two-brushed-regions-system.PNG, id=126, 1883.53688pt 
-x 992.95969pt>
+<img/vis/actual-predicted-two-brushed-regions-system.PNG, id=126, 1520.68124pt 
+x 782.17218pt>
 File: img/vis/actual-predicted-two-brushed-regions-system.PNG Graphic file (typ
 e png)
 <use img/vis/actual-predicted-two-brushed-regions-system.PNG>
 Package pdftex.def Info: img/vis/actual-predicted-two-brushed-regions-system.PN
 G  used on input line 10.
-(pdftex.def)             Requested size: 347.12354pt x 182.98254pt.
+(pdftex.def)             Requested size: 347.12354pt x 178.54716pt.
 ) (./0-article.bbl
 [15 <./img/vis/actual-predicted-two-brushed-regions-system.PNG>] [16]) [17]
 (./0-article.aux)
@@ -1311,7 +1311,7 @@ b><e:/Apps/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><e:/Apps/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><e:/Apps/texlive/
 2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 0-article.pdf (17 pages, 1577932 bytes).
+Output written on 0-article.pdf (17 pages, 1484187 bytes).
 PDF statistics:
  204 PDF objects out of 1000 (max. 8388607)
  114 compressed objects within 2 object streams
