@@ -60,9 +60,9 @@ The entropic relevance also allows to compare the adequacy the forecasted DFGs w
 
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
-The code is available %TODO here.
+The code and full results are available here\footnote{\url{https://github.com/JohannesDeSmedt/pmf}}.
 
-The results are displayed in Figures \ref{fig:bpi12_equisize} to \ref{fig:rtfmp_equitemp}. - STILL NEED TO REDUCE THESE FIGURES. ANY INPUT WOULD BE HELPFUL (definitely no need to keep all ARIMAs I think). 
+The results are displayed in Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp}. - STILL NEED TO REDUCE THESE FIGURES. ANY INPUT WOULD BE HELPFUL (definitely no need to keep all ARIMAs I think). 
 
 NOTE THAT ALL FIGURES ARE AVAILABLE IN Results PMF 08-03.zip
 
@@ -87,50 +87,17 @@ Implications:
 %TODO: select which figures to include here, as these take up 3 pages:
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{img/bpi12_cosine_equisize.png}
-    \includegraphics[width=\textwidth]{img/bpi12_entropic_equisize.png}
-    \caption{Results for equi-size aggregation for the BPI12 event log.}
-    \label{fig:bpi12_equisize}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/sepsis_cosine_equisize.png}
-    \includegraphics[width=\textwidth]{img/sepsis_entropic_equisize.png}
-    \caption{Results for equi-size aggregation for the sepsis event log.}
-    \label{fig:sepsis_equisize}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/rtfmp_cosine_equisize.png}
-    \includegraphics[width=\textwidth]{img/rtfmp_entropic_equisize.png}
-    \caption{Results for equi-size aggregation for the RTFMP event log.}
+    \includegraphics[width=\textwidth]{img/rtfmp_cosine_small_equisize.png}
+    \includegraphics[width=\textwidth]{img/rtfmp_entropic_small_equisize.png}
+    \caption{Results for equisize aggregation for the RTFMP event log.}
     \label{fig:rtfmp_equisize}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{img/bpi12_cosine_equitemp.png}
-    \includegraphics[width=\textwidth]{img/bpi12_entropic_equitemp.png}
-    \caption{Results for equi-temporal aggregation for the BPI12 event log.}
-    \label{fig:bpi12_equitemp}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/sepsis_cosine_equitemp.png}
-    \includegraphics[width=\textwidth]{img/sepsis_entropic_equitemp.png}
-    \caption{Results for equi-temporal aggregation for the sepsis event log.}
-    \label{fig:sepsis_equitemp}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/rtfmp_cosine_equitemp.png}
-    \includegraphics[width=\textwidth]{img/rtfmp_entropic_equitemp.png}
-    \caption{Results for equi-temporal aggregation for the RTFMP event log.}
+    \includegraphics[width=\textwidth]{img/rtfmp_cosine_small_equitemp.png}
+    \includegraphics[width=\textwidth]{img/rtfmp_entropic_small_equitemp.png}
+    \caption{Results for equitemporal aggregation for the RTFMP event log.}
     \label{fig:rtfmp_equitemp}
 \end{figure}
-
 
