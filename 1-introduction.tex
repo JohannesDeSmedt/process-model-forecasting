@@ -9,24 +9,25 @@ These techniques, however, focus on a short time horizon or a well-scoped outcom
 Indeed, it is known that the next-step, or the time-to-next-step, prediction often performs poorly for long time horizons~\cite{park2020predicting}.
 This, consequently, limits the range of insights that can be obtained. 
 A process (model) is ever-changing. Hence, while the outcome can be predicted accurately, this might still obfuscate the underlying drivers for that outcome.
-Process analysts could benefit from obtaining a more evolutionary image of the process~\cite{DBLP:conf/bpm/PollPRRR18}, including the evolution of various aspects that relate to the process outcome. 
+Process analysts could benefit from obtaining a more evolutionary image of the process~\cite{DBLP:conf/bpm/PollPRRR18}, including the evolution of various aspects that relate to the process outcome such as process drifts of (parts of) the model which can inform improvement ideas~\cite{van2015pm}. 
+
 
 This paper suggests a paradigm shift from the typical predictive process analysis techniques that focus on the level of individual outcome, trace, or event to such that focus on the entire process model.
 %Current predictive techniques construct a predictive model to infer the future development of a trace, while the proposed forecasting approach infers the future development of a model which can generate future traces itself.
 This is achieved via an aggregation, both at the input and output of forecasting, of directly-follows (DF) relations over all the process activity pairs as a summary of the process model at various time steps, which are further extrapolated into the future using time series techniques modelling the number of DF occurrences over time.
 Given that forecasting over long horizons results in a vast amount of information, inspired by the ideas in~\cite{DBLP:conf/er/KabicherKR11}, we propose an approach for tracking the changes in forecasted models and comparing them with AS-IS models.
+The idea hence marries the concept of traditional process mining discovery using descriptive models and the typical machine learning setup of using training and test sets to gain insights on generalisations into the future of predictive process monitoring.
 
 This paper makes four contributions:
 \begin{enumerate}
 	\item Proposes the first process model forecasting technique grounded in the time series forecasting;
 	\item Evaluates the quality of the process models forecasted by our technique using standard conformance checking measures from process mining;
-	\item Argues that the quality of the produced forecasts is sufficient to be useful for practical applications; and
+	\item Argues that the quality of the produced forecasts are mostly in the range of 5-15\% in terms of mean absolute percentage error in terms of conformance with actual models, which makes process model forecasting useful for practical applications; and
 	\item Presents the Process Change Exploration (PCE) system for comparing AS-IS and forecasted process models.
 \end{enumerate}
 
 To this purpose, a variety of time series analysis techniques are applied to three industrial event logs using two aggregations that establish suitable time series. 
 A variety of considerations regarding the use of time series analysis for event logs, and the suitability of other predictive algorithms, are discussed.
 Results show that simple forecasting techniques often perform adequately without extensive parameter tuning. 
-More intricate models often fail to report consistent performance.
 
 This paper is structured as follows...

@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+  \centering
+  \resizebox{0.65\textwidth}{!}{
+    \begin{tabular}{|c|l|ccc|ccc|ccc|}
+\cmidrule{3-11}    \multicolumn{1}{r}{} &       & \multicolumn{3}{c|}{\textbf{BPI 12}} & \multicolumn{3}{c|}{\textbf{Sepsis}} & \multicolumn{3}{c|}{\textbf{RTFMP}} \\
+    \multicolumn{1}{r}{} &       & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} \\
+    \midrule
+    \multirow{5}[2]{*}{\begin{sideways}\textbf{equisize}\end{sideways}} & \textbf{nav} & \textbf{2.63} & 2.55  & 2.23  & 8.66  & 7.19  & 5.85  & \textbf{35.10} & \textbf{19.63} & 17.03 \\
+          & \textbf{arima212} & 4.49  & \textbf{2.31} & \textbf{2.20} & NA    & 8.93  & 6.55  & 40.65 & NA    & 20.71 \\
+          & \textbf{ar2} & 2.91  & 2.69  & 2.22  & 10.45 & 6.49  & 5.14  & NA    & NA    & \textbf{14.44} \\
+          & \textbf{hw} & 2.71  & 2.41  & 2.22  & 8.25  & 7.52  & 6.20  & 43.06 & 24.09 & 20.20 \\
+          & \textbf{garch} & 3.02  & 3.02  & 2.26  & \textbf{7.66} & \textbf{6.14} & \textbf{4.95} & 37.65 & 22.93 & 15.12 \\
+    \midrule
+    \multicolumn{1}{|c|}{\multirow{5}[2]{*}{\begin{sideways}\textbf{equitemp}\end{sideways}}} & \textbf{nav} & 3.75  & \textbf{3.09} & 3.11  & 9.77  & 6.99  & NA    & 20.81 & 12.96 & 15.19 \\
+          & \textbf{arima212} & 5.35  & 4.16  & \textbf{2.83} & 14.87 & 7.88  & NA    & 33.03 & 13.79 & \textbf{14.48} \\
+          & \textbf{ar2} & NA    & 3.19  & 3.13  & 15.35 & 6.51  & NA    & NA    & 13.06 & 15.38 \\
+          & \textbf{hw} & 4.10  & 3.21  & 3.06  & \textbf{7.98} & 6.08  & NA    & 26.15 & 13.29 & 15.77 \\
+          & \textbf{garch} & \textbf{3.74} & 3.19  & 3.17  & 23.00 & \textbf{5.68} & NA    & \textbf{19.68} & \textbf{11.68} & 14.64 \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{Overview of the mean percentage error in terms of entropic relevance.}
+  \label{tab:result_table}%
+\end{table}%

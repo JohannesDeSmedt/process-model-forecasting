@@ -1,4 +1,4 @@
-\section{Experimental evaluation}\label{sec:experiment}
+\section{Implementation and evaluation}\label{sec:experiment}
 In this section, an experimental evaluation over three real-life event logs is reported.
 The aim of the evaluation is to measure to what extent the forecasted process models/DFGs are capable of correctly reproducing actual future DFGs in terms of their arc weights (measured as deviations or errors), as well as whether they are capable of reproducing the same process model behaviour (measured against the behaviour of the baseline actual DFG).
 This is done at various parts of the trace, i.e. forecasts for the middle of the event logs up to the later parts of the event log to capture the robustness of the forecasting techniques in terms of the amount of data required to obtain good prediction results.
@@ -39,6 +39,7 @@ If the level of occurrences of the DF pair is low and close to 0, the series mig
 Ideally, every time series is tested using a stationarity test such as the Dickey-Fuller unit root test \cite{leybourne1995testing} and an appropriate lag order is established for differencing. 
 Furthermore for each algorithm, especially ARIMA-based models, (partial) auto-correlation could establish the ideal $p$ and $q$ parameters.
 However, for the sake of simplicity and to avoid solutions where each activity pair has to have different parameters, various values are used for $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
+The results contain the best-performing representative of each forecasting family.
 \begin{figure}[tb]
 	\centering
 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1.png}}
@@ -61,43 +62,34 @@ The entropic relevance also allows to compare the adequacy the forecasted DFGs w
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
 The code and full results are available here\footnote{\url{https://github.com/JohannesDeSmedt/pmf}}.
+Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp} contain visualisations of the cosine distance and entropic relevance for the RTFMP log, and Table \ref{tab:result_table} contains the mean absolute percentage error (MAPE) of the actual and forecasted DFGs in terms of entropic relevance.
+\input{4b-result_table.tex}
 
-The results are displayed in Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp}. - STILL NEED TO REDUCE THESE FIGURES. ANY INPUT WOULD BE HELPFUL (definitely no need to keep all ARIMAs I think). 
+The MAPE results show that many techniques are capable of staying well below the 5\% difference for BPI 12 (except for ARIMA after 50 intervals) with the naive forecasting baseline performing competitively with the slightly outperforming ARIMA(2,1,2) model in some cases.
+For the Sepsis dataset, results below the 10\% line can be achieved by many techniques, with GARCH performing best for equisize and Holt-Winters for equitemporal aggregation.
+Given the few DF occurrences in the later part of the event log, no results can be produced for the equitemporal aggregation.
+Finally, the RTFMP only achieves below 15\% MAPE for the 100 intervals or equitemporal aggregation.
+Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp} show that GARCH indeed performs well in terms of low entropic relevance, but not cosine distance.
+Besides, it shows that most techniques perform similarly in terms of entropic relevance.
 
-NOTE THAT ALL FIGURES ARE AVAILABLE IN Results PMF 08-03.zip
+Overall, there is no clear forecasting technique that stands out over the whole line, while the naive baseline often performs adequately and GARCH reporting best or close-to-best results in at least half the cases.
+The errors are higher when fewer intervals are used for training with 100 intervals ($ts=75$) resulting in the lowest MAPE for all three datasets.
+Nevertheless, even for 75 intervals ($ts=50$) the results are closer to the 100 than the 50 interval setup.
+It also appears that equitemporal aggregation results is lower forecasting errors when the training set is small.
 
-Observations:
-\begin{itemize}
-    \item Regardless of the aggregation type, only using 25-35 training points to forecast 25 test points creates very unstable results for all datasets and forecasting techniques both in terms of cosine distance and entropic relevance. Especially autoregressive models (both AR and ARIMA) from a higher order (2,4) suffer from very high cosine distances when few training points are used. 
-    This is potentially due to the inclusion of more distant observations in the prediction.
-    \item Once a level of stability is present in the results, the difference between forecasting techniques is lower in terms of the cosine distance although GARCH and AR models still perform worse. 
-    \item In terms of entropic relevance, the actual DFGs do have better scores except for the BPI 12 log where GARCH even outperforms the actual DFG. In general, GARCH scores best in terms of entropic relevance while the other models perform similar to the naive model. ARIMA models perform worst overall.
-    \item For the equitemporal aggregation this difference of the actual with the forecasts is less pronounced and the difference among the forecasts is minimal as well. 
-    The entropic relevance is also significantly higher for the equitemporal aggregation.
-\end{itemize}
-
-Implications:
-\begin{itemize}
-    \item The entropic relevance learns us that the forecasting techniques are capable of obtaining similar results capturing as much of the process behavior as the actual DFGs generated by the process.
-    \item The forecasting techniques used have little impact, meaning that even a naive forecast can produce good results, although GARCH models perform better, possibly due to their capturing a varying level of variance over time which seems especially suitable for DF relations which do not necessarily are generated by a white noise process. Note, however, that the confidence intervals have not yet been investigated.
-    \item The results show that there is a need to have at least observed close to half of the process' events before reasonably stable predictions can be made.
-    \item An equitemporal aggregation results in worse forecasts. This is potentially due to the inconsitent number of DF occurrences present, compared to the equisize aggregation which is stable and hence approaches a white noise process.
-\end{itemize}
-
-%TODO: select which figures to include here, as these take up 3 pages:
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{img/rtfmp_cosine_small_equisize.png}
-    \includegraphics[width=\textwidth]{img/rtfmp_entropic_small_equisize.png}
+    \includegraphics[width=0.8\textwidth]{img/rtfmp_cosine_small_equisize.png}
+    \includegraphics[width=0.8\textwidth]{img/rtfmp_entropic_small_equisize.png}
     \caption{Results for equisize aggregation for the RTFMP event log.}
     \label{fig:rtfmp_equisize}
 \end{figure}
-
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{img/rtfmp_cosine_small_equitemp.png}
-    \includegraphics[width=\textwidth]{img/rtfmp_entropic_small_equitemp.png}
+    \includegraphics[width=0.8\textwidth]{img/rtfmp_cosine_small_equitemp.png}
+    \includegraphics[width=0.8\textwidth]{img/rtfmp_entropic_small_equitemp.png}
     \caption{Results for equitemporal aggregation for the RTFMP event log.}
     \label{fig:rtfmp_equitemp}
 \end{figure}
 
+\input{4.4-visualisation}
