@@ -9,14 +9,14 @@ These techniques, however, focus on a short time horizon or a well-scoped outcom
 Indeed, it is known that the next-step, or the time-to-next-step, prediction often performs poorly for long time horizons~\cite{park2020predicting}.
 This, consequently, limits the range of insights that can be obtained. 
 A process (model) is ever-changing. Hence, while the outcome can be predicted accurately, this might still obfuscate the underlying drivers for that outcome.
-Process analysts could benefit from obtaining a more evolutionary image of the process~\cite{DBLP:conf/bpm/PollPRRR18}, including the evolution of various aspects that relate to the process outcome such as process drifts of (parts of) the model which can inform improvement ideas~\cite{van2015pm}. 
+Process analysts could benefit from obtaining a more evolutionary image of the process~\cite{DBLP:conf/bpm/PollPRRR18}, including the stability or change of (parts of) the process model such as process drifts which can inform improvement ideas~\cite{van2015pm}. 
 
 
 This paper suggests a paradigm shift from the typical predictive process analysis techniques that focus on the level of individual outcome, trace, or event to such that focus on the entire process model.
 %Current predictive techniques construct a predictive model to infer the future development of a trace, while the proposed forecasting approach infers the future development of a model which can generate future traces itself.
 This is achieved via an aggregation, both at the input and output of forecasting, of directly-follows (DF) relations over all the process activity pairs as a summary of the process model at various time steps, which are further extrapolated into the future using time series techniques modelling the number of DF occurrences over time.
 Given that forecasting over long horizons results in a vast amount of information, inspired by the ideas in~\cite{DBLP:conf/er/KabicherKR11}, we propose an approach for tracking the changes in forecasted models and comparing them with AS-IS models.
-The idea hence marries the concept of traditional process mining discovery using descriptive models and the typical machine learning setup of using training and test sets to gain insights on generalisations into the future of predictive process monitoring.
+The idea hence marries the concept of traditional process mining discovery using descriptive models and the typical machine learning setup which uses training and test sets to gain insights on generalisations into the future of predictive process monitoring.
 
 This paper makes four contributions:
 \begin{enumerate}

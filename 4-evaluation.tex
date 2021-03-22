@@ -76,7 +76,6 @@ Overall, there is no clear forecasting technique that stands out over the whole 
 The errors are higher when fewer intervals are used for training with 100 intervals ($ts=75$) resulting in the lowest MAPE for all three datasets.
 Nevertheless, even for 75 intervals ($ts=50$) the results are closer to the 100 than the 50 interval setup.
 It also appears that equitemporal aggregation results is lower forecasting errors when the training set is small.
-
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{img/rtfmp_cosine_small_equisize.png}
@@ -92,4 +91,10 @@ It also appears that equitemporal aggregation results is lower forecasting error
     \label{fig:rtfmp_equitemp}
 \end{figure}
 
-\input{4.4-visualisation}
+\subsection{Managerial implications}
+Depending on the event log, it is feasible to obtain good (<15\%) to very good (<5\%) forecasting results in terms of the MAPE entropic relevance against actual DFGs.
+The experiments do show that the number of intervals used for training vastly impacts results, which is expected given that with 10-fold validation this results in only 15 interval being used for the tenth fold to predict the next 25 intervals.
+Given that GARCH models often perform strongly suggests that DF time series benefit from the use of models which allow for a varying level of variance.
+This makes sense in an event log context, as activities generating the DF occurrences do not occur uniformly during the execution of a process.
+
+\input{4.5-visualisation}
