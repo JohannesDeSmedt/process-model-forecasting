@@ -18,8 +18,20 @@ The DFGs show how process model forecasting and change exploration can provide m
     \item The \emph{Create Fine} activity appears as a start activity more often - indicating a possible process drift.
 \end{enumerate}
 These provide insight both in terms of the past en present model ((3)-(4)) and the quality of forecasts between the actual and forecasted model ((1)-(2)).
-Being able to construct such a predictions allows stakeholders to make estimates regarding how the overall fine system will evolve and allows to answer questions such as `How many more fines will be received?', `Will the backlog of fines be reduced?', `Will all fines be paid', and `Will the ratio of unpaid fines stay the same?'
-This motivating example shows that where process mining/monitoring focuses on learning the as-is model to inform the to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process which allows to shortcut potentially wrong outcomes \cite{DBLP:conf/bpm/PollPRRR18}.
+Being able to construct such predictions allows stakeholders to make estimates regarding how the overall fine system will evolve and allows to answer questions such as `How many more fines will be received?', `Will the backlog of fines be reduced?', `Will all fines be paid', and `Will the ratio of unpaid fines stay the same?'
+This motivating example shows that where process mining/monitoring focuses on learning the as-is model to inform the to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process which allows to shortcut potentially wrong outcomes. 
+
+In this light we set to derive the user requirements to design visualization the system to enable analysts to understand the forthcoming changes to the processes. The authors of~\cite{DBLP:conf/bpm/PollPRRR18} discuss the opportunities for process forecasting. They describe that the utility of process forecasting is an understanding of the incremental changes or adaptations that happen to the process model into the future. In terms of visualization principles, we follow the "Visual Information-Seeking Mantra":~\emph{overview first, zoom and filter, then details-on-demand}~\cite{DBLP:conf/vl/Shneiderman96}. 
+%(maybe talk about tasks? not requirements)
+Thus, we expect the design of our system to assist in the following tasks:
+
+%requirements for the visualization based on the related literature and experience working with event sequence data. 
+
+\begin{requidescr}
+	\item[Identify process adaptations:\namedlabel{req:adaptation}] The visualization system should assist the user in identifying the changes that happen in the process model of the future in respect to the past;
+	\item[Allow for interactive exploration:\namedlabel{req:interactive}] The user should be able to follow the visual information-seeking principles, including overview first, filtering, zooming, details-on-demand principles.;
+\end{requidescr} % CUSTOM from CDC, with love :)
+
 
 Note that the horizon is longer compared with next-step prediction, and that these results would only be obtainable if long next-step predictions were performed.
 Hence, both are complementary by their being used as varying horizons to obtain a full picture of the future development of a process (model).

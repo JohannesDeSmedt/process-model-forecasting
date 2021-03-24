@@ -114,6 +114,11 @@ Thomakos, D.D., Guerard~Jr, J.B.: Naive, arima, nonparametric, transfer
   function and var models: A comparison of forecasting performance.
   International Journal of Forecasting  20(1),  53--67 (2004)
 
+\bibitem{van2015pm}
+Van~Eck, M.L., Lu, X., Leemans, S.J., Van Der~Aalst, W.M.: {PM}$^2$: a process
+  mining project methodology. In: International Conference on Advanced
+  Information Systems Engineering. pp. 297--313. Springer (2015)
+
 \bibitem{weigend2018time}
 Weigend, A.S.: Time series prediction: forecasting the future and understanding
   the past. Routledge (2018)
