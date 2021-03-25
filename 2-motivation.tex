@@ -1,6 +1,6 @@
 \section{Motivation}\label{sec:2:motivation}
 
-The shift from fine-granular predictive process forecasting including best next-step, remaining time prediction, and goal-oriented prediction to model-based prediction allows to obtain new insights into the global development of the process.
+The shift from fine-granular predictive process monitoring including next activity, remaining time, and outcome prediction, to model-based prediction, allows to obtain new insights into the global development of the process.
 Consider the example in Figure \ref{fig:dfg_example_intro} where the road fine traffic management event log\footnote{\url{https://doi.org/10.4121/uuid:270fd440-1057-4fb9-89a9-b699b47990f5}} is partitioned into 100 intervals in which an equal number of DF relations occur.
 \begin{figure}
     \centering
@@ -19,9 +19,9 @@ The DFGs show how process model forecasting and change exploration can provide m
 \end{enumerate}
 These provide insight both in terms of the past en present model ((3)-(4)) and the quality of forecasts between the actual and forecasted model ((1)-(2)).
 Being able to construct such predictions allows stakeholders to make estimates regarding how the overall fine system will evolve and allows to answer questions such as `How many more fines will be received?', `Will the backlog of fines be reduced?', `Will all fines be paid', and `Will the ratio of unpaid fines stay the same?'
-This motivating example shows that where process mining/monitoring focuses on learning the as-is model to inform the to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process which allows to shortcut potentially wrong outcomes. 
+This motivating example shows that, where process mining/monitoring focuses on learning the as-is model to reason about a to-be model and suggest potential repairs and improvements, process model forecasting allows to already grasp the future outcomes of the current as-is process, which allows to shortcut potentially wrong outcomes. 
 
-In this light we set to derive the user requirements to design visualization the system to enable analysts to understand the forthcoming changes to the processes. The authors of~\cite{DBLP:conf/bpm/PollPRRR18} discuss the opportunities for process forecasting. They describe that the utility of process forecasting is an understanding of the incremental changes or adaptations that happen to the process model into the future. In terms of visualization principles, we follow the "Visual Information-Seeking Mantra":~\emph{overview first, zoom and filter, then details-on-demand}~\cite{DBLP:conf/vl/Shneiderman96}. 
+In this light we set to derive the user requirements to design visualisation the system to enable analysts to understand the forthcoming changes to the processes. The authors of~\cite{DBLP:conf/bpm/PollPRRR18} discuss the opportunities for process forecasting. They describe that the utility of process forecasting is an understanding of the incremental changes or adaptations that happen to the process model into the future. In terms of visualisation principles, we follow the "Visual Information-Seeking Mantra":~\emph{overview first, zoom and filter, then details-on-demand}~\cite{DBLP:conf/vl/Shneiderman96}. 
 %(maybe talk about tasks? not requirements)
 Thus, we expect the design of our system to assist in the following tasks:
 

@@ -8,10 +8,10 @@ A Directly Follows Graph (DFG) of the process then exists as the weighted direct
 
 In order to obtain predictions regarding the evolution of the DFG we construct DFGs for subsets of the log.
 Many aggregations and bucketing techniques exist for next-step and goal-oriented outcome prediction \cite{DBLP:conf/caise/TaxVRD17,DBLP:journals/tkdd/TeinemaaDRM19}, e.g., predictions at a point in the process rely on prefixes of a certain length, or particular state aggregations \cite{DBLP:journals/sosym/AalstRVDKG10}.
-In the proposed forecasting approach, however, not cross-sectional but time series data will be used.
+In the proposed forecasting approach, however, time series instead of cross-sectional data will be used.
 Hence, the evolution of the DFGs has to be monitored over intervals of the log where multiple aggregations are possible:
 \begin{itemize}
-	\item \textbf{Equitemporal aggregation:} each sublog $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, is easy to apply (on new traces).
+	\item \textbf{Equitemporal aggregation:} each sublog $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, it is easy to apply (on new traces).
 	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ contains a part of the event log where an equal amount of events (and hence DFs) occurred. This leads to well-populated sublogs, however, might be harder to apply when new data does not contain sufficient new DF occurrences.
 \end{itemize}
 Tables \ref{tab:eventlog} and \ref{tab:aggregation} provide an example of both.
@@ -68,7 +68,7 @@ A trade-off exists between approaching DFGs as a multivariate collection of DF t
 The aforementioned time series techniques all use univariate data in contrast with, e.g., Vector AutoRegression (VAR) models, or machine learning-based methods such as neural networks or random forest regressors.
 Despite their simple setup, it is debated whether traditional statistical approaches are necessarily outperformed by machine learning methods. 
 \cite{makridakis2018statistical} found that this is not the case on a large number of datasets and note that the machine learning algorithms require significantly more computational power, a result that was later reaffirmed although it is noted that hybrid solutions are effective \cite{makridakis2020m4}.
-Especially for longer horizons traditional time series approaches still outperform machine learning-based models.
+Especially for longer horizons, traditional time series approaches still outperform machine learning-based models.
 Given the potentially high number of DF pairs in a process' DFG, the proposed approach uses a time series algorithm for each DF series separately.
 VAR models would require a high number of intervals (at least as many as there are DFs times the lag coefficient) to be able to estimate all parameters of such a high number of time series despite their potentially strong performance \cite{thomakos2004naive}.
 Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs. Therefore, in this paper, traditional time series approaches are chosen and applied to the univariate DF time series where these have at least 1 observation per sublog/time step present.
