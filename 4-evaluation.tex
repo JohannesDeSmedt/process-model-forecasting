@@ -5,7 +5,7 @@ This is done at various parts of the trace, i.e. forecasts for the middle of the
 This is done for both the equisized and equitemporal aggregation.
 
 \subsection{Re-sampling and test setup}
-In order to obtain training data, time series are obtained by specifying a number of intervals (i.e. time steps in the DF time series) using either equitemporal or equisized aggregation a described in Section \ref{sec:preliminaries}.
+In order to obtain training data, time series are obtained by specifying a number of intervals (i.e. time steps in the DF time series) using either equitemporal or equisized aggregation a described in Section \ref{sec:3a:preliminaries}.
 Time series algorithms are parametric and sensitive to sample size requirements \cite{hanke2001business}.
 Depending on the number of parameters a model uses, a minimum size of at least 50 steps is not uncommon, although typically model performance should be monitored at a varying number of steps.
 In the experimental evaluation, the event logs are divided into 100 time intervals with a varying share of training and test intervals. A constant and long horizon $h=25$ is used meaning all test sets contain 25 intervals, but the training sets are varied from $ts=25$ to $ts=75$ intervals, meaning the forecasts progressively target the prediction of intervals 25-50 (the second quarter of intervals) over to 75-100 (the last quarter of intervals).
@@ -53,11 +53,10 @@ Given that we want to evaluate the capability of the approach to accurately pred
 The following two criteria are used:
 \begin{itemize}
 	\item \textbf{Cosine distance:} measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFGs' edge weight matrices between the actual and predicted number of DF relations.
-	\item \textbf{Entropic relevance:} a measure for stochastic conformance checking computed as the average number of bits required to compress each of the log’s traces based on the structure and information about relative likelihoods provided by the model \cite{DBLP:conf/icpm/PolyvyanyyMG20}.
+	\item \textbf{Entropic relevance:} see section \ref{sec:2:motivation}.
 \end{itemize}
 These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behaviour.
 In both cases a lower score is better.
-The entropic relevance also allows to compare the adequacy of the forecasted DFGs with the actual DFGs.
 
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 

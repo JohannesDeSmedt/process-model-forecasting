@@ -12,14 +12,15 @@ In the proposed forecasting approach, however, time series instead of cross-sect
 Hence, the evolution of the DFGs has to be monitored over intervals of the log where multiple aggregations are possible:
 \begin{itemize}
 	\item \textbf{Equitemporal aggregation:} each sublog $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, it is easy to apply (on new traces).
-	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ contains a part of the event log where an equal amount of events (and hence DFs) occurred. This leads to well-populated sublogs, however, might be harder to apply when new data does not contain sufficient new DF occurrences.
+	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ contains a part of the event log where an equal amount of DFs occurred which leads to well-populated sublogs when enough events are available.
 \end{itemize}
 Tables \ref{tab:eventlog} and \ref{tab:aggregation} provide an example of both.
 These aggregations can be useful for the following reasons.
 Firstly, equisized aggregation will have a higher likelihood of the underlying DFs approaching a white noise time series which is required for a wide range of time series techniques \cite{hyndman2018forecasting}. 
 Secondly, both offer a different threshold at which the forecasting can be applied in practice.
 In the case of equisized aggregation, it is easier to quickly construct a desired number of intervals by simply dividing an event log to obtain equisized intervals.
-However, most time series techniques rely on the time steps being of equal size which is embodied by the equitemporal aggregation \cite{kil1997optimum}.
+However, most time series techniques rely on the time intervals being of equal size which is embodied by the equitemporal aggregation \cite{kil1997optimum}.
+Time series for the DFs $>_{T_{a_1,a_2}}=\langle >_{L_1}(a_1,a_2),\dots,>_{L_s}(a_1,a_2)\rangle, \forall a_1,a_2\in \Sigma\times\Sigma$ can be obtained for all activity pairs where $\bigcup^{L_s}_{L_1}=L$ by applying the aforementioned aggregations to obtain the sublogs.
 \begin{table}[htbp]
    \begin{minipage}{.5\textwidth}
    	\centering
@@ -60,18 +61,47 @@ However, most time series techniques rely on the time steps being of equal size 
  \end{minipage}%
 \end{table}%
 
-Time series for the DFs $>_{T_{a_1,a_2}}=\langle >_{L_1}(a_1,a_2),\dots,>_{L_s}(a_1,a_2)\rangle, \forall a_1,a_2\in \Sigma\times\Sigma$ can be obtained for all activity pairs where $\bigcup^{L_s}_{L_1}=L$ by applying the aforementioned aggregations to obtain the sublogs.
+\subsection{From DF time series to process model forecasts}\label{sec:3b:df}
 
-%\subsection{From DF time series to process model forecasts}\label{sec:3b:df}
+The goal of process model forecasting is to obtain a prediction for future DFGs by combining the predictions of all the DF pairs time series.
+To this purpose, we propose to use time series techniques to forecast $\widehat{DFG}_{T+h}=(\Sigma,\{\hat{>}_{T+h|T_{a_1,a_2}}|a_1,a_2\in \Sigma\times\Sigma\})$ for which various algorithms can be used.
+In time series modelling, the main objective is to obtain a forecast or prediction $\hat{y}_{T+h|T}$ for a horizon $h\in \mathbb{N}$ based on previous $T$ values in the series $(y_1,...,y_T)$ \cite{hyndman2018forecasting}.
+For example, the naive forecast simply uses the last value of the time series $T$ as its prediction $\hat{y}_{T+h|T}=y_T$.
+An alternative naive forecast uses the average value of the time series $T$ as its prediction $\hat{y}_{T+h|T}=\frac{1}{T}\Sigma_i^{T} y_i$.
 
 A trade-off exists between approaching DFGs as a multivariate collection of DF time series, or treating each DF separately.
-The aforementioned time series techniques all use univariate data in contrast with, e.g., Vector AutoRegression (VAR) models, or machine learning-based methods such as neural networks or random forest regressors.
+Traditional tme series techniques all use univariate data in contrast with multivariate approaches such as Vector AutoRegression (VAR) models, and machine learning-based methods such as neural networks or random forest regressors.
 Despite their simple setup, it is debated whether traditional statistical approaches are necessarily outperformed by machine learning methods. 
 \cite{makridakis2018statistical} found that this is not the case on a large number of datasets and note that the machine learning algorithms require significantly more computational power, a result that was later reaffirmed although it is noted that hybrid solutions are effective \cite{makridakis2020m4}.
 Especially for longer horizons, traditional time series approaches still outperform machine learning-based models.
 Given the potentially high number of DF pairs in a process' DFG, the proposed approach uses a time series algorithm for each DF series separately.
 VAR models would require a high number of intervals (at least as many as there are DFs times the lag coefficient) to be able to estimate all parameters of such a high number of time series despite their potentially strong performance \cite{thomakos2004naive}.
-Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs. Therefore, in this paper, traditional time series approaches are chosen and applied to the univariate DF time series where these have at least 1 observation per sublog/time step present.
+Machine learning models could potentially leverage interrelations between the different DFs but again would require long training times to account for dimensionality issues due to the potentially high number of DFs. 
+Therefore, in this paper, traditional time series approaches are chosen and applied to the univariate DF time series where these have at least 1 observation per sublog/time interval present.
 
-Therefore, in this paper, we propose to use univariate time series techniques which can be used to forecast process models represented by DFGs by applying them to each DF time series separately to obtain a forecasted directly-follows graph $\widehat{DFG}_{T+h}=(\Sigma,\{\hat{>}_{T+h|T_{a_1,a_2}}|a_1,a_2\in \Sigma\times\Sigma\})$.
+We briefly discuss smoothing models, autoregressive, moving averages and ARIMA models, and varying variance models which make up the main families of traditional time series forecasting \cite{hyndman2018forecasting}.
+A wide array of such forecasting techniques exist, ranging from simple models such as naive forecasts over to more advanced approaches such as exponential smoothing and auto-regressive models.
+Many also exist in a seasonal variant due to their application in contexts such as sales forecasting.
+
+A Simple Exponential Smoothing (SES) model uses a weighted average of past values where their importance exponentially decays as they are further into the past where Holt's models introduce a trend in the forecast, meaning the forecast is not flat.
+Exponential smoothing models often perform very well despite their simple setup \cite{makridakis2018statistical}.
+AutoRegressive Integrating Moving Average (ARIMA) models are based on auto-correlations within time series. 
+They combine auto-regressions with a moving average over error terms.
+It is established by a combination of an AutoRegressive (AR) model of order $p$ uses the past $p$ values in the time series and applies a regression over them and a Moving Average (MA) model of order $q$ which creates a moving average of the past forecast errors.
+Given the necessity of using a white noise series for AR and MA models, data is often differenced to obtain such series.
+ARIMA models then combine both AR and MA models where the integration is taking place after modelling as these models are fitted over differenced time series.
+ARIMA models are considered to be one of the strongest time series modelling techniques.
+An extension to ARIMA which is widely used in econometrics exists in (Generalized) AutoRegressive Conditional Heteroskedasticity ((G)ARCH) models \cite{francq2019garch}.
+They resolve the assumption that the variance of the error term has to be equal over time, but rather model this variance as a function of the previous error term.
+For AR-models, this leads to the use of ARCH-models, while for ARMA models GARCH-models are used as follows.
+An ARCH(q) model captures the change in variance by allowing it to both gradually increase over time, or to allow for short bursts of increased variance.
+A GARCH(p,q) model combines both the past values of observations as well as the past values of variance.
+(G)ARCH models often outperform ARIMA models in contexts such as the prediction of financial indicators of which the variance often changes over time \cite{francq2019garch}.
+
+
+
+
+
+
+
 
