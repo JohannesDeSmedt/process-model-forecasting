@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.6)  22 MAR 2021 21:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.6)  2 APR 2021 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1151,34 +1151,33 @@ a shorter form with \authorrunning prior to \maketitle
 
 {e:/Apps/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./2-moti
 vation.tex [2]
-<img/MotExample2.png, id=44, 981.4266pt x 979.4994pt>
-File: img/MotExample2.png Graphic file (type png)
-<use img/MotExample2.png>
-Package pdftex.def Info: img/MotExample2.png  used on input line 7.
-(pdftex.def)             Requested size: 295.05711pt x 294.47981pt.
- [3 <./img/MotExample2.png>]
-Overfull \hbox (2.29668pt too wide) in paragraph at lines 31--32
-[]\OT1/cmr/m/n/10 The vi-su-al-iza-tion sys-tem should as-sist the
+<img/MotExample.png, id=44, 971.3088pt x 539.616pt>
+File: img/MotExample.png Graphic file (type png)
+<use img/MotExample.png>
+Package pdftex.def Info: img/MotExample.png  used on input line 7.
+(pdftex.def)             Requested size: 347.12354pt x 192.84538pt.
+ [3 <./img/MotExample.png>]
+Overfull \hbox (1.17168pt too wide) in paragraph at lines 34--35
+[]\OT1/cmr/m/n/10 The vi-su-al-i-sa-tion sys-tem should as-sist the
  []
 
-) (./3-methodology.tex [4] (./3.1-dftimeseries.tex
-Overfull \hbox (2.05554pt too wide) in paragraph at lines 24--61
+[4]) (./3-methodology.tex (./3.1-2-dftimeseries.tex
+Overfull \hbox (2.05554pt too wide) in paragraph at lines 25--62
 []$[]$ $[]$ 
  []
 
-[5]) (./3.2-timeseriestechniques.tex
+[5]
+Overfull \hbox (6.77054pt too wide) in paragraph at lines 66--71
+\OT1/cmr/m/n/10 pose to use time se-ries tech-niques to fore-cast $[][] = (\OML
+/cmm/m/it/10 ^^F; \OMS/cmsy/m/n/10 f[][]j\OML/cmm/m/it/10 a[]; a[] \OMS/cmsy/m/
+n/10 2
+ []
+
+[6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6])
-(./3.3-visualisation.tex [7])) (./4-evaluation.tex
-
-LaTeX Warning: Reference `sec:preliminaries' on page 8 undefined on input line 
-8.
-
-
-Underfull \vbox (badness 1769) has occurred while \output is active []
-
- [8]
+ [7])
+(./3.3-visualisation.tex)) (./4-evaluation.tex [8]
 <./img/rtfmp_1.png, id=78, 462.528pt x 346.896pt>
 File: ./img/rtfmp_1.png Graphic file (type png)
 <use ./img/rtfmp_1.png>
@@ -1189,61 +1188,66 @@ File: ./img/rtfmp_1_t.png Graphic file (type png)
 <use ./img/rtfmp_1_t.png>
 Package pdftex.def Info: ./img/rtfmp_1_t.png  used on input line 46.
 (pdftex.def)             Requested size: 135.37796pt x 101.53415pt.
-
-[9] [10 <./img/rtfmp_1.png> <./img/rtfmp_1_t.png>] (./4b-result_table.tex)
+ [9] [10 <./img/rtfmp_1.png> <./img/rtfmp_1_t.png>] (./4b-result_table.tex)
 <img/rtfmp_cosine_small_equisize.png, id=89, 742.9356pt x 223.3143pt>
 File: img/rtfmp_cosine_small_equisize.png Graphic file (type png)
 <use img/rtfmp_cosine_small_equisize.png>
 Package pdftex.def Info: img/rtfmp_cosine_small_equisize.png  used on input lin
-e 81.
+e 80.
 (pdftex.def)             Requested size: 277.69987pt x 83.47345pt.
 <img/rtfmp_entropic_small_equisize.png, id=90, 742.9356pt x 223.3143pt>
 File: img/rtfmp_entropic_small_equisize.png Graphic file (type png)
 <use img/rtfmp_entropic_small_equisize.png>
 Package pdftex.def Info: img/rtfmp_entropic_small_equisize.png  used on input l
-ine 82.
+ine 81.
 (pdftex.def)             Requested size: 277.69987pt x 83.47345pt.
 <img/rtfmp_cosine_small_equitemp.png, id=91, 742.9356pt x 223.3143pt>
 File: img/rtfmp_cosine_small_equitemp.png Graphic file (type png)
 <use img/rtfmp_cosine_small_equitemp.png>
 Package pdftex.def Info: img/rtfmp_cosine_small_equitemp.png  used on input lin
-e 88.
+e 87.
 (pdftex.def)             Requested size: 277.69987pt x 83.47345pt.
 <img/rtfmp_entropic_small_equitemp.png, id=92, 744.381pt x 223.3143pt>
 File: img/rtfmp_entropic_small_equitemp.png Graphic file (type png)
 <use img/rtfmp_entropic_small_equitemp.png>
 Package pdftex.def Info: img/rtfmp_entropic_small_equitemp.png  used on input l
-ine 89.
+ine 88.
 (pdftex.def)             Requested size: 277.69987pt x 83.30989pt.
+ [11]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 9
+4.
 
-[11] (./4.5-visualisation.tex [12 <./img/rtfmp_cosine_small_equisize.png> <./im
-g/rtfmp_entropic_small_equisize.png>]
-<img/vis/actual-predicted-two-brushed-regions-system.PNG, id=101, 1358.82657pt 
-x 737.75626pt>
+(e:/Apps/texlive/2020/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 94.
+
+(./4.5-visualisation.tex [12 <./img/rtfmp_cosine_small_equisize.png> <./img/rtf
+mp_entropic_small_equisize.png>]
+<img/vis/actual-predicted-two-brushed-regions-system.PNG, id=101, 1318.17468pt 
+x 403.5075pt>
 File: img/vis/actual-predicted-two-brushed-regions-system.PNG Graphic file (typ
 e png)
 <use img/vis/actual-predicted-two-brushed-regions-system.PNG>
 Package pdftex.def Info: img/vis/actual-predicted-two-brushed-regions-system.PN
 G  used on input line 10.
-(pdftex.def)             Requested size: 347.12354pt x 188.45744pt.
-)) (./0-article.bbl [13 <./img/rtfmp_cosine_small_equitemp.png> <./img/rtfmp_en
-tropic_small_equitemp.png>] [14 <./img/vis/actual-predicted-two-brushed-regions
--system.PNG>]) [15] (./0-article.aux)
+(pdftex.def)             Requested size: 347.12354pt x 106.25786pt.
+)) [13 <./img/rtfmp_cosine_small_equitemp.png> <./img/rtfmp_entropic_small_equi
+temp.png> <./img/vis/actual-predicted-two-brushed-regions-system.png>] (./0-art
+icle.bbl [14]) [15] (./0-article.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 30062 strings out of 479023
- 727806 string characters out of 5860876
+ 30074 strings out of 479023
+ 727955 string characters out of 5860876
  1160775 words of memory out of 5000000
- 46927 multiletter control sequences out of 15000+600000
+ 46939 multiletter control sequences out of 15000+600000
  411100 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,15n,103p,1042b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,15n,103p,1046b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 <e:/Apps/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><e
 :/Apps/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><e:/Ap
 ps/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><e:/Apps/te
@@ -1264,7 +1268,7 @@ b><e:/Apps/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><e:/Apps/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><e:/Apps/texlive/
 2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 0-article.pdf (15 pages, 1322143 bytes).
+Output written on 0-article.pdf (15 pages, 1104638 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  110 compressed objects within 2 object streams

@@ -1,11 +1,11 @@
 \section{Implementation and evaluation}\label{sec:experiment}
 In this section, an experimental evaluation over three real-life event logs is reported.
-The aim of the evaluation is to measure to what extent the forecasted process models/DFGs are capable of correctly reproducing actual future DFGs in terms of their arc weights (measured as deviations or errors), as well as whether they are capable of reproducing the same process model behaviour (measured against the behaviour of the baseline actual DFG).
-This is done at various parts of the trace, i.e. forecasts for the middle of the event logs up to the later parts of the event log to capture the robustness of the forecasting techniques in terms of the amount of data required to obtain good prediction results.
-This is done for both the equisized and equitemporal aggregation.
+The aim of the evaluation is to measure to what extent the forecasted process models/DFGs are capable of correctly reproducing actual future DFGs in terms of allowing for the same process model behaviour.
+To this purpose we benchmark the actual against the forecasted entropic relevance discussed in \Cref{sec:2:motivation}.
+This is done at various parts of the trace, i.e. forecasts for the middle of the event logs up to the later parts of the event log to capture the robustness of the forecasting techniques in terms of the amount of data required to obtain good prediction results for both the equisized and equitemporal aggregation.
 
 \subsection{Re-sampling and test setup}
-In order to obtain training data, time series are obtained by specifying a number of intervals (i.e. time steps in the DF time series) using either equitemporal or equisized aggregation a described in Section \ref{sec:3a:preliminaries}.
+To obtain training data, time series are obtained by specifying a number of intervals (i.e. time steps in the DF time series) using either equitemporal or equisized aggregation a described in Section \ref{sec:3a:preliminaries}.
 Time series algorithms are parametric and sensitive to sample size requirements \cite{hanke2001business}.
 Depending on the number of parameters a model uses, a minimum size of at least 50 steps is not uncommon, although typically model performance should be monitored at a varying number of steps.
 In the experimental evaluation, the event logs are divided into 100 time intervals with a varying share of training and test intervals. A constant and long horizon $h=25$ is used meaning all test sets contain 25 intervals, but the training sets are varied from $ts=25$ to $ts=75$ intervals, meaning the forecasts progressively target the prediction of intervals 25-50 (the second quarter of intervals) over to 75-100 (the last quarter of intervals).
@@ -32,62 +32,69 @@ Each of these logs has a diverse set of characteristics in terms of case and act
   \label{tab:eventlogs}%
 \end{table}%
 
-An example of applying the equisized or equitemporal aggregation to the Sepsis event log with 100 intervals results in the DF time series of Figure \ref{fig:sepsists}, where the DF occurrences of the most frequently occurring activity pair is included.
-For the equisized aggregation, the number of DFs is indeed relatively stable over the log's timeline where for the equitemporal aggregation a noticeable decline of DF pairs is visible towards the end of the series.
-This phenomenon is typical in event logs, as processes usually have particular endpoint activities, but can also be due to the unequal distribution of events over the event log's time line.
-If the level of occurrences of the DF pair is low and close to 0, the series might be too unsuitable for analysis with white noise series analysis techniques that assume stationarity.
+%An example of applying the equisized or equitemporal aggregation to the Sepsis event log with 100 intervals results in the DF time series of Figure \ref{fig:sepsists}, where the DF occurrences of the most frequently occurring activity pair is included.
+%For the equisized aggregation, the number of DFs is indeed relatively stable over the log's timeline where for the equitemporal aggregation a noticeable decline of DF pairs is visible towards the end of the series.
+%This phenomenon is typical in event logs, as processes usually have particular endpoint activities, but can also be due to the unequal distribution of events over the event log's time line.
+There are a few considerations concerning the DF time series in these event logs.
+Firstly, DFs of activity pairs containing end point activities (i.e. at the start/end of a trace) often only contain meaningful numbers at very particular parts of the series and are hard to process by longitudinal algorithms which require a longer pattern to extract a meaningful pattern for prediction.
+Secondly, especially the equitemporal aggregation can suffer from event logs in which events do not occur as frequently throughout the full log's development.
+E.g., the Sepsis log's number of event occurrences tails off towards the end which can be alleviated by pre-processing (not done here to remain consistent over the event logs).
+Finally, if the level of occurrences of the DF pair is low and close to 0, the series might be too unsuitable for analysis with white noise series analysis techniques that assume stationarity.
 Ideally, every time series is tested using a stationarity test such as the Dickey-Fuller unit root test \cite{leybourne1995testing} and an appropriate lag order is established for differencing. 
 Furthermore for each algorithm, especially ARIMA-based models, (partial) auto-correlation could establish the ideal $p$ and $q$ parameters.
 However, for the sake of simplicity and to avoid solutions where each activity pair has to have different parameters, various values are used for $p$, $d$, and $q$ and applied to all DF pairs where only the best-performing are reported below for comparison with the other time series techniques.
 The results contain the best-performing representative of each forecasting family.
-\begin{figure}[tb]
-	\centering
-	\subfigure[Most common DF - equisize]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1.png}}
-	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1_t.png}}
-	\caption{RTFMP}
-	\label{fig:sepsists}
-\end{figure}
+% \begin{figure}[tb]
+% 	\centering
+% 	\subfigure[Most common DF - equisize]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1.png}}
+% 	\subfigure[Most common DF - equitemp]{\includegraphics[width=0.39\textwidth]{./img/rtfmp_1_t.png}}
+% 	\caption{RTFMP}
+% 	\label{fig:sepsists}
+% \end{figure}
 
-\subsection{Evaluation criteria}
-Given that we want to evaluate the capability of the approach to accurately predict the evolution of the process model, the combination of all DF predictions is considered to obtain a global DFG prediction.
-The following two criteria are used:
-\begin{itemize}
-	\item \textbf{Cosine distance:} measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFGs' edge weight matrices between the actual and predicted number of DF relations.
-	\item \textbf{Entropic relevance:} see section \ref{sec:2:motivation}.
-\end{itemize}
-These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behaviour.
-In both cases a lower score is better.
+% \subsection{Evaluation criteria}
+% Given that we want to evaluate the capability of the approach to accurately predict the evolution of the process model, the combination of all DF predictions is considered to obtain a global DFG prediction.
+% The following two criteria are used:
+% \begin{itemize}
+% 	\item \textbf{Cosine distance:} measures the distance between two vectors and is often used to compare graph distance. This metric is used to compare the DFGs' edge weight matrices between the actual and predicted number of DF relations.
+% 	\item \textbf{Entropic relevance:} see section \ref{sec:2:motivation}.
+% \end{itemize}
+% These criteria balance a predictive and structural evaluation of the algorithms and report on both the numeric performance common in a forecasting setting as well as their appropriateness in terms of reproducing a structurally usable process model which allows for the observed process behaviour.
+% In both cases a lower score is better.
 
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
 The code and full results are available here\footnote{\url{https://github.com/JohannesDeSmedt/pmf}}.
-Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp} contain visualisations of the cosine distance and entropic relevance for the RTFMP log, and Table \ref{tab:result_table} contains the mean absolute percentage error (MAPE) of the actual and forecasted DFGs in terms of entropic relevance.
+Figures \ref{fig:equisize} and \ref{fig:equitemp} contain visualisations of the entropic relevance over the predicted intervals for 25, 50, and 75 intervals in the training set respecitively (amounting to 50, 75, 100 intervals used overall with a 25 interval test set). 
+It is clear that the actual DFG is lower for all datasets and both aggregation types.
+Next, it can be seen that mostly when fewer training points are used there is a more noticeable difference between forecasting techniques.
+For longer training sets the differences even out and forecasting techniques perform roughly similar for all datasets and aggregation types with the exception of ARIMA.
+Despite the long horizon, the entropic relevance of the predicted models remains relatively stable even further along in the test set.
+Only for the equitemporal aggregation on the Sepsis log there is a strong decline towards the end of the event long due to the strong decrease of the number of event occurrences.
 \input{4b-result_table.tex}
 
-The MAPE results show that many techniques are capable of staying well below the 5\% difference for BPI 12 (except for ARIMA after 50 intervals) with the naive forecasting baseline performing competitively with the slightly outperforming ARIMA(2,1,2) model in some cases.
-For the Sepsis dataset, results below the 10\% line can be achieved by many techniques, with GARCH performing best for equisized and Holt-Winters for equitemporal aggregation.
-Given the few DF occurrences in the later part of the event log, no results can be produced for the equitemporal aggregation.
-Finally, the RTFMP only achieves below 15\% MAPE for the 100 intervals or equitemporal aggregation.
-Figures \ref{fig:rtfmp_equisize} and \ref{fig:rtfmp_equitemp} show that GARCH indeed performs well in terms of low entropic relevance, but not cosine distance.
-Besides, it shows that most techniques perform similarly in terms of entropic relevance.
+Table \ref{tab:result_table} contains the mean absolute percentage error (MAPE) of the actual and forecasted DFGs to quantify the difference in terms of entropic relevance.
+For the BPI12 log, the best-performing predictions are within a 8.5-13\% difference bracket, while for the Sepsis case the differences increase drastically to 80-100\%, and 28-110\% for the RTFMP log when the instable and very high differences on only using 25 intervals in the training set are discarded.
+Most algorithms do perform similarly, indicating that even an average naive forecast suffices to outperform more intricate models such as GARCH except for ARIMA and AR models which boast the best results in most cases offering a significantly better performance overall.
+One of the reasons for such a difference in error which seems most apparent is the number of activities, given that the BPI12 log has more than twice the amount of activities compared to the other logs. 
 
-Overall, there is no clear forecasting technique that stands out over the whole line, while the naive baseline often performs adequately and GARCH reporting best or close-to-best results in at least half the cases.
-The errors are higher when fewer intervals are used for training with 100 intervals ($ts=75$) resulting in the lowest MAPE for all three datasets.
-Nevertheless, even for 75 intervals ($ts=50$) the results are closer to the 100 than the 50 interval setup.
-It also appears that equitemporal aggregation results is lower forecasting errors when the training set is small.
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{img/rtfmp_cosine_small_equisize.png}
-    \includegraphics[width=0.8\textwidth]{img/rtfmp_entropic_small_equisize.png}
-    \caption{Results for equisize aggregation for the RTFMP event log.}
-    \label{fig:rtfmp_equisize}
+    \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equisize.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equisize.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equisize.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equisize.png}
+    \caption{Entropic relevance results for equisize aggregation. Best (lowest) results are indicated in bold.}
+    \label{fig:equisize}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{img/rtfmp_cosine_small_equitemp.png}
-    \includegraphics[width=0.8\textwidth]{img/rtfmp_entropic_small_equitemp.png}
-    \caption{Results for equitemporal aggregation for the RTFMP event log.}
-    \label{fig:rtfmp_equitemp}
+    \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equitemp.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equitemp.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equitemp.png}
+    % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equitemp.png}
+    \caption{Entropic relevance results for equitemporal aggregation. Best (lowest) results are indicated in bold.}
+    \label{fig:equitemp}
 \end{figure}
 
 \subsection{Managerial implications}

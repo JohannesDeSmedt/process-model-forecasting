@@ -5,7 +5,7 @@
 \citation{DBLP:conf/caise/TaxVRD17}
 \citation{DBLP:conf/icsoc/Rogge-SoltiW13}
 \citation{DBLP:journals/tkdd/TeinemaaDRM19}
-\@writefile{toc}{\contentsline {title}{Process Model Forecasting Using Time Series Analysis of Event Data}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {title}{Process Model Forecasting Using Time Series Analysis of Event Sequence Data}{1}{}\protected@file@percent }
 \@writefile{toc}{\authcount {5}}
 \@writefile{toc}{\contentsline {author}{Johannes\nobreakspace  {}De\nobreakspace  {}Smedt\unskip {} \and Anton\nobreakspace  {}Yeshchenko\unskip {} \and Artem\nobreakspace  {}Polyvyanyy\unskip {} \and Jochen\nobreakspace  {}De\nobreakspace  {}Weerdt\unskip {} \and Jan\nobreakspace  {}Mendling\unskip {}}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{}\protected@file@percent }
@@ -16,7 +16,6 @@
 \citation{DBLP:conf/bpm/PollPRRR18}
 \citation{van2015pm}
 \citation{DBLP:conf/er/KabicherKR11}
-\citation{DBLP:conf/icpm/PolyvyanyyMG20}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Motivation}{3}{}\protected@file@percent }
 \newlabel{sec:2:motivation}{{2}{3}}
 \newlabel{sec:2:motivation@cref}{{[section][2][]2}{[1][3][]3}}
@@ -24,12 +23,13 @@
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:dfg_example_intro}{{1}{3}}
 \newlabel{fig:dfg_example_intro@cref}{{[figure][1][]1}{[1][3][]3}}
+\citation{DBLP:conf/icpm/PolyvyanyyMG20}
 \citation{DBLP:conf/bpm/PollPRRR18}
 \citation{DBLP:conf/vl/Shneiderman96}
 \citation{DBLP:journals/tkdd/TeinemaaDRM19}
-\newlabel{req:adaptation}{{R1}{4}}
+\newlabel{req:adaptation}{{T1}{4}}
 \newlabel{req:adaptation@cref}{{[section][2][]2}{[1][4][]4}}
-\newlabel{req:interactive}{{R2}{4}}
+\newlabel{req:interactive}{{T2}{4}}
 \newlabel{req:interactive@cref}{{[section][2][]2}{[1][4][]4}}
 \citation{DBLP:conf/caise/TaxVRD17,DBLP:journals/tkdd/TeinemaaDRM19}
 \citation{DBLP:journals/sosym/AalstRVDKG10}
@@ -37,44 +37,43 @@
 \citation{kil1997optimum}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Process model forecasting}{5}{}\protected@file@percent }
 \newlabel{sec:methodology}{{3}{5}}
-\newlabel{sec:methodology@cref}{{[section][3][]3}{[1][4][]5}}
+\newlabel{sec:methodology@cref}{{[section][3][]3}{[1][5][]5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}From event log to directly-follows time series}{5}{}\protected@file@percent }
 \newlabel{sec:3a:preliminaries}{{3.1}{5}}
 \newlabel{sec:3a:preliminaries@cref}{{[subsection][1][3]3.1}{[1][5][]5}}
+\citation{hyndman2018forecasting}
 \citation{makridakis2018statistical}
 \citation{makridakis2020m4}
 \citation{thomakos2004naive}
-\citation{hyndman2018forecasting}
-\citation{hyndman2018forecasting}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Example event log with 3 traces and 2 activities.\relax }}{6}{}\protected@file@percent }
 \newlabel{tab:eventlog}{{1}{6}}
 \newlabel{tab:eventlog@cref}{{[table][1][]1}{[1][5][]6}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces An example of using an interval of 3 used for equitemporal aggregation (75 minutes in 3 intervals of 25 minutes) and equisized intervals of size 2 (6 DFs over 3 intervals)).\relax }}{6}{}\protected@file@percent }
 \newlabel{tab:aggregation}{{2}{6}}
 \newlabel{tab:aggregation@cref}{{[table][2][]2}{[1][5][]6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}From DF time series to process model forecasts}{6}{}\protected@file@percent }
+\newlabel{sec:3b:df}{{3.2}{6}}
+\newlabel{sec:3b:df@cref}{{[subsection][2][3]3.2}{[1][6][]6}}
+\citation{hyndman2018forecasting}
 \citation{makridakis2018statistical}
 \citation{francq2019garch}
 \citation{francq2019garch}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Time series techniques}{7}{}\protected@file@percent }
-\newlabel{sec:3b:timeseries}{{3.2}{7}}
-\newlabel{sec:3b:timeseries@cref}{{[subsection][2][3]3.2}{[1][6][]7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Process change exploration}{7}{}\protected@file@percent }
-\newlabel{sec:3c:pce}{{3.3}{7}}
-\newlabel{sec:3c:pce@cref}{{[subsection][3][3]3.3}{[1][7][]7}}
 \citation{DBLP:conf/grapp/KriglsteinR12}
 \citation{leemans2019directly}
-\citation{hanke2001business}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Process change exploration}{8}{}\protected@file@percent }
+\newlabel{sec:3c:pce}{{3.3}{8}}
+\newlabel{sec:3c:pce@cref}{{[subsection][3][3]3.3}{[1][8][]8}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Implementation and evaluation}{8}{}\protected@file@percent }
 \newlabel{sec:experiment}{{4}{8}}
 \newlabel{sec:experiment@cref}{{[section][4][]4}{[1][8][]8}}
+\citation{hanke2001business}
 \citation{weigend2018time}
 \citation{bergmeir2012use}
 \citation{leybourne1995testing}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Re-sampling and test setup}{9}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Overview of the characteristics of the event logs used in the experimental evaluation.\relax }}{9}{}\protected@file@percent }
-\newlabel{tab:eventlogs}{{3}{9}}
-\newlabel{tab:eventlogs@cref}{{[table][3][]3}{[1][9][]9}}
-\citation{DBLP:conf/icpm/PolyvyanyyMG20}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Overview of the characteristics of the event logs used in the experimental evaluation.\relax }}{10}{}\protected@file@percent }
+\newlabel{tab:eventlogs}{{3}{10}}
+\newlabel{tab:eventlogs@cref}{{[table][3][]3}{[1][9][]10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces RTFMP\relax }}{10}{}\protected@file@percent }
 \newlabel{fig:sepsists}{{2}{10}}
 \newlabel{fig:sepsists@cref}{{[figure][2][]2}{[1][9][]10}}
@@ -93,6 +92,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Visualising Process Model Forecasts}{12}{}\protected@file@percent }
 \newlabel{sec:visualisation}{{4.5}{12}}
 \newlabel{sec:visualisation@cref}{{[subsection][5][4]4.5}{[1][12][]12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Results for equitemporal aggregation for the RTFMP event log.\relax }}{13}{}\protected@file@percent }
+\newlabel{fig:rtfmp_equitemp}{{4}{13}}
+\newlabel{fig:rtfmp_equitemp@cref}{{[figure][4][]4}{[1][11][]13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Process Change Exploration (PCE) system.\nobreakspace  {}\emph  {(a)} shows\nobreakspace  {}\emph  {Adaptation Directly-Follows Graph (aDFG)} view.\nobreakspace  {}\emph  {(b)} shows the \emph  {Timeline view with brushed regions} view. Users can brush one or more regions on this graph in order to filter the scope of the analysis\nobreakspace  {}\emph  {(b.1}, and\nobreakspace  {}\emph  {b.2)}. Two additional views on\nobreakspace  {}\emph  {(c)} show the \emph  {activity and path sliders}.\relax }}{13}{}\protected@file@percent }
+\newlabel{fig:vis-two-brushes}{{5}{13}}
+\newlabel{fig:vis-two-brushes@cref}{{[figure][5][]5}{[1][13][]13}}
 \bibstyle{splncs03}
 \bibdata{lib}
 \bibcite{van2016data}{1}
@@ -101,12 +106,6 @@
 \bibcite{DBLP:conf/bpm/Francescomarino18}{4}
 \bibcite{francq2019garch}{5}
 \bibcite{hanke2001business}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Results for equitemporal aggregation for the RTFMP event log.\relax }}{13}{}\protected@file@percent }
-\newlabel{fig:rtfmp_equitemp}{{4}{13}}
-\newlabel{fig:rtfmp_equitemp@cref}{{[figure][4][]4}{[1][11][]13}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{13}{}\protected@file@percent }
-\newlabel{sec:conclusion}{{5}{13}}
-\newlabel{sec:conclusion@cref}{{[section][5][]5}{[1][13][]13}}
 \bibcite{hyndman2018forecasting}{7}
 \bibcite{DBLP:conf/er/KabicherKR11}{8}
 \bibcite{kil1997optimum}{9}
@@ -115,12 +114,12 @@
 \bibcite{leybourne1995testing}{12}
 \bibcite{makridakis2018statistical}{13}
 \bibcite{makridakis2020m4}{14}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Process Change Exploration (PCE) system.\nobreakspace  {}\emph  {(a)} shows\nobreakspace  {}\emph  {Adaptation Directly-Follows Graph (aDFG)} view.\nobreakspace  {}\emph  {(b)} shows the \emph  {Timeline view with brushed regions} view. Users can brush one or more regions on this graph in order to filter the scope of the analysis\nobreakspace  {}\emph  {(b.1}, and\nobreakspace  {}\emph  {b.2)}. Two additional views\nobreakspace  {}\emph  {(c.1)}, and\nobreakspace  {}\emph  {(c.2)} show the \emph  {activity and path sliders}.\relax }}{14}{}\protected@file@percent }
-\newlabel{fig:vis-two-brushes}{{5}{14}}
-\newlabel{fig:vis-two-brushes@cref}{{[figure][5][]5}{[1][13][]14}}
 \bibcite{park2020predicting}{15}
 \bibcite{DBLP:conf/bpm/PollPRRR18}{16}
 \bibcite{DBLP:conf/icpm/PolyvyanyyMG20}{17}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{14}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{5}{14}}
+\newlabel{sec:conclusion@cref}{{[section][5][]5}{[1][13][]14}}
 \bibcite{DBLP:conf/icsoc/Rogge-SoltiW13}{18}
 \bibcite{seabold2010statsmodels}{19}
 \bibcite{DBLP:conf/vl/Shneiderman96}{20}
