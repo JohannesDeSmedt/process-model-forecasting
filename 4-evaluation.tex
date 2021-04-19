@@ -15,19 +15,24 @@ Resampling is applied based on a 10-fold cross-validation constructed following 
 10 training sets are hence constructed for each training set length $ts$ and exist from $(y_1,\dots,y_{T-h-f})$ and the test sets from $(y_{T-h-f+1},\dots,y_{T-f})$ with $f\in[0,9]$ the fold index \cite{bergmeir2012use}.
 While direct strategies with a separate model for every value of $h$ can be used as well and avoid the accumulation of error, they do not take into account statistical dependencies for subsequent predictions.
 
-Three popular publicly-available event logs are used: the 2012 BPI challenge log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, and the Road Traffic Fine Management Process log (RTFMP) event log (see Section \ref{sec:2:motivation}.
+Three popular publicly-available event logs are used: the BPI challenge of 2012 log\footnote{\url{https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f}}, 2017\footnote{\url{https://doi.org/10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b}}, and 2018\footnote{\url{https://doi.org/10.4121/uuid:3301445f-95e8-4ff0-98a4-901f1f204972}}, the Sepsis cases event log\footnote{\url{https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460}}, an Italian help desk log\footnote{\url{https://doi.org/10.4121/uuid:0c60edf1-6f83-4e75-9367-4c63b3e9d5bb}}, and the Road Traffic Fine Management Process log (RTFMP) event log (see Section \ref{sec:2:motivation}).
 Each of these logs has a diverse set of characteristics in terms of case and activity volume, as well as average trace length, as can be seen in Table \ref{tab:eventlogs}.
 \begin{table}[htbp]
   \centering
+  \resizebox{0.6\textwidth}{!}{
     \begin{tabular}{lrrr}
     \toprule
     \textbf{Event log} & \multicolumn{1}{l}{\textbf{\# cases}} & \multicolumn{1}{l}{\textbf{\# activities}} & \multicolumn{1}{l}{\textbf{Average trace length}} \\
     \midrule
-    \textbf{BPI 12} & 13,087 & 36    & 20.020 \\
-    \textbf{Sepsis} & 1,050 & 16    & 14.490 \\
-    \textbf{RTFMP} & 150,370 & 11    & 3.734 \\
+    \textbf{BPI 12} & 13,087 & 36    & 20.02 \\
+    \textbf{BPI 17} & 31,509 & 26    & 36.83 \\
+    \textbf{BPI 18} & 43,809 & 170   & 57.39 \\
+    \textbf{Sepsis} & 1,050 & 16    & 14.49 \\
+    \textbf{RTFMP} & 150,370 & 11    & 3.73 \\
+    \textbf{Italian} & 4,580 & 14    & 4.66 \\
     \bottomrule
     \end{tabular}%
+    }
   \caption{Overview of the characteristics of the event logs used in the experimental evaluation.}
   \label{tab:eventlogs}%
 \end{table}%
@@ -64,43 +69,67 @@ The results contain the best-performing representative of each forecasting famil
 
 \subsection{Results}
 All pre-processing was done in Python with a combination of \emph{pm4py}\footnote{\url{https://pm4py.fit.fraunhofer.de}} and the \emph{statsmodels} package \cite{seabold2010statsmodels}. 
-The code and full results are available here\footnote{\url{https://github.com/JohannesDeSmedt/pmf}}.
-Figures \ref{fig:equisize} and \ref{fig:equitemp} contain visualisations of the entropic relevance over the predicted intervals for 25, 50, and 75 intervals in the training set respecitively (amounting to 50, 75, 100 intervals used overall with a 25 interval test set). 
-It is clear that the actual DFG is lower for all datasets and both aggregation types.
-Next, it can be seen that mostly when fewer training points are used there is a more noticeable difference between forecasting techniques.
-For longer training sets the differences even out and forecasting techniques perform roughly similar for all datasets and aggregation types with the exception of ARIMA.
-Despite the long horizon, the entropic relevance of the predicted models remains relatively stable even further along in the test set.
-Only for the equitemporal aggregation on the Sepsis log there is a strong decline towards the end of the event long due to the strong decrease of the number of event occurrences.
-\input{4b-result_table.tex}
+The code is available here\footnote{\url{https://github.com/JohannesDeSmedt/pmf}}.
 
-Table \ref{tab:result_table} contains the mean absolute percentage error (MAPE) of the actual and forecasted DFGs to quantify the difference in terms of entropic relevance.
-For the BPI12 log, the best-performing predictions are within a 8.5-13\% difference bracket, while for the Sepsis case the differences increase drastically to 80-100\%, and 28-110\% for the RTFMP log when the instable and very high differences on only using 25 intervals in the training set are discarded.
-Most algorithms do perform similarly, indicating that even an average naive forecast suffices to outperform more intricate models such as GARCH except for ARIMA and AR models which boast the best results in most cases offering a significantly better performance overall.
-One of the reasons for such a difference in error which seems most apparent is the number of activities, given that the BPI12 log has more than twice the amount of activities compared to the other logs. 
+In order to get a grasp of the forecasting performance in combination with actual use of DFGs (which are seldom used in their non-aggregated form \cite{van2019practitioner}) we present the mean absolute percentage error (MAPE) between the entropic relevance of the actual and forecasted DFGs at both full size, at 50\%, and 75\% reduction where the reduction is node-based (i.e. only the Q2/Q3 percentile of nodes in terms of frequency is retained).
+Using different levels of aggregation also balances recall and precision, as aggregated DFGs are less precise but possibly more overfitting leading to their entropic relevance being higher (i.e. worse).
+The results can be found in Tables \ref{tab:result_dfg_table} to \ref{tab:result_dfg_table_25}.
+NAs are reported when the algorithms did not converge, no data was available (e.g. Sepsis for the 75-100 equitemporal intervals), or extremely high values were predicted.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equisize.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equisize.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equisize.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equisize.png}
-    \caption{Entropic relevance results for equisize aggregation. Best (lowest) results are indicated in bold.}
-    \label{fig:equisize}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equitemp.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equitemp.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equitemp.png}
-    % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equitemp.png}
-    \caption{Entropic relevance results for equitemporal aggregation. Best (lowest) results are indicated in bold.}
-    \label{fig:equitemp}
-\end{figure}
+When no reduction is applied, Table \ref{tab:result_dfg_table} shows that for the BPI12 and 17 logs below 10\% deviation can be achieved, mostly for equisized aggregation. 
+For the Italian help desk log, results are in the 10-37\% bracket, while for the other logs results are often well above a 100\% deviation (with the entropic relavance of the actual DFGs being lower, hence better, than the entropic relevance for the forecasted DFGs).
+For the RTFMP and BPI18 log, however, results are better when more training points are used (e.g. 50 or 75 to obtain predictions for the 50-75 and 75-100 intervals).
+There is no strong difference between equisized and equitemporal aggregation except for the occasional outliers.
+The results change for the better (i.e., the percentage error is lower) in Table \ref{tab:result_dfg_table_50} when a reduction of 50\% is applied with sub-10\% results for the BPI12, Sepsis, and BPI17 logs. 
+The results for the RTFMP log are occassionally better, but mostly worse, similar to BPI18.
+Finally, the results in Table \ref{tab:result_dfg_table_25} show a further reduction of errors for the BPI12, Sespsis, BPI17, and Italian logs, but also a drastic decrease to close to 0\% for RTFMP.
+The results for the BPI18 log remain bad at over 100\% error rates.
 
-\subsection{Managerial implications}
-Depending on the event log, it is feasible to obtain good (\textless15\%) to very good (\textless5\%) forecasting results in terms of the MAPE and entropic relevance against actual DFGs.
-The experiments show that the number of intervals used for training vastly impacts results, which is expected given that with 10-fold cross-validation, this results in only 15 interval being used for the tenth fold to predict the next 25 intervals.
-Given that GARCH models often perform strongly suggests that DF time series benefit from the use of models which allow for a varying level of variance.
-This makes sense in an event log context, as activities generating the DF occurrences do not occur uniformly during the execution of a process.
+These results are commensurate the findings in \cite{DBLP:conf/icpm/PolyvyanyyMG20} which contains entropic relevance results for the BPI12, Sepsis, and RTFMP logs indicating that entropic relevance of larger DFGs is lower (better) for RTFMP/Sespsis, and the entropic relevance goes up strongly for small models of RTFMP meaning the drastically improved error rates reported here are for models performing worse in terms of recall and precision.
+The entropic relevance for the BPI12 log is stable for the full spectrum of DFG sizes as per \cite{DBLP:conf/icpm/PolyvyanyyMG20} which is reflected in the consistently good error rates presented here.
+Matching all results to the event log characteristics, we notice that the event logs with longer average traces with medium-sized alphabets ($>$20) such as BPI12 and BPI17 consistently report good results.
+The BPI18 log's high number of activities seems to inflate error rates quickly, which is further aggregavated when DFGs are reduced.
+Given that DFGs are based on activity pairs, this result is not surprising.
+For Sepsis and the Italian event logs good error rates are obtained once DFGs are reduced, indicating that forecasting the low-frequent edges and activities might lead to high error rates when the alphabet is smaller and traces are shorter, which is potentially also caused by the lack of precision as witnessed with the RTFMP log.
+
+Overall, there exist many scenarios in which process model forecasting is delivering strong results.
+For the BPI12, BPI17, Italian, and Sepsis event logs, sub-10\% error rates can be achieved both for equisized and equitemporal aggregation.
+In some cases, even a naive forecast is enough to obtain a low error rate, however, the AR and ARIMA models report the best error rates in the most cases.
+Nevertheless, results are often close except when fewer training points are used (only 25 to predict intervals 25-50).
+Then, results are often varying widely.
+In future attempts, the confidence intervals will also be investigated.
+
+\input{tables/table_dfg.tex}
+
+\input{tables/table_dfg_50.tex}
+
+\input{tables/table_dfg_25.tex}
+
+
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equisize.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equisize.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equisize.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equisize.png}
+%     \caption{Entropic relevance results for equisize aggregation. Best (lowest) results are indicated in bold.}
+%     \label{fig:equisize}
+% \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{img/cv_entropic_small_equitemp.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_bpi12_entropic_small_equitemp.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_sepsis_entropic_small_equitemp.png}
+%     % \includegraphics[width=0.8\textwidth]{img/cv_rtfmp_entropic_small_equitemp.png}
+%     \caption{Entropic relevance results for equitemporal aggregation. Best (lowest) results are indicated in bold.}
+%     \label{fig:equitemp}
+% \end{figure}
+
+% \subsection{Managerial implications}
+% Depending on the event log, it is feasible to obtain good (\textless15\%) to very good (\textless5\%) forecasting results in terms of the MAPE and entropic relevance against actual DFGs.
+% The experiments show that the number of intervals used for training vastly impacts results, which is expected given that with 10-fold cross-validation, this results in only 15 interval being used for the tenth fold to predict the next 25 intervals.
+% Given that GARCH models often perform strongly suggests that DF time series benefit from the use of models which allow for a varying level of variance.
+% This makes sense in an event log context, as activities generating the DF occurrences do not occur uniformly during the execution of a process.
 
 \input{4.5-visualisation}

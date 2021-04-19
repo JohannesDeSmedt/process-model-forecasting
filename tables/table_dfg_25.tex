@@ -1,0 +1,24 @@
+\begin{table}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|l|ccc|ccc|ccc|ccc|ccc|ccc|}
+\cmidrule{3-20}    \multicolumn{1}{r}{} &       & \multicolumn{3}{c|}{\textbf{BPI 12}} & \multicolumn{3}{c|}{\textbf{Sepsis}} & \multicolumn{3}{c|}{\textbf{RTFMP}} & \multicolumn{3}{c|}{\textbf{BPI17}} & \multicolumn{3}{c|}{\textbf{Italian}} & \multicolumn{3}{c|}{\textbf{BPI18}} \\
+    \multicolumn{1}{r}{} &       & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} & \textbf{50} & \textbf{75} & \textbf{100} \\
+    \midrule
+    \multirow{5}[2]{*}{\begin{sideways}\textbf{equisize}\end{sideways}} & \textbf{nav} & 0.96  & 0.87  & 1.37  & 2.40  & 2.91  & \textbf{3.47} & 0.00  & 0.00  & 0.01  & 0.12  & \textbf{0.29} & \textbf{0.14} & 13.11 & 15.11 & 27.02 & \textbf{247.32} & 223.34 & \textbf{146.27} \\
+          & \textbf{arima212} & 0.98  & \textbf{0.84} & \textbf{1.33} & \textbf{2.38} & 2.85  & 3.65  & 0.00  & 0.00  & 0.01  & \textbf{0.06} & 0.30  & 0.16  & 13.08 & 14.94 & 26.97 & 346.94 & 236.73 & 211.17 \\
+          & \textbf{ar2} & \textbf{0.86} & 0.85  & 1.35  & 2.42  & 2.58  & \textbf{3.47} & 0.00  & 0.00  & 0.01  & 0.12  & 0.30  & \textbf{0.14} & 13.10 & 15.02 & 26.97 & NA    & \textbf{222.06} & NA \\
+          & \textbf{hw} & 1.00  & 0.85  & 1.35  & 2.73  & 2.90  & \textbf{3.47} & 0.00  & 0.00  & 0.01  & 0.11  & 0.31  & 0.15  & \textbf{12.98} & \textbf{14.79} & 27.08 & 333.80 & 255.83 & 207.86 \\
+          & \textbf{garch} & 0.89  & 0.86  & 1.35  & 2.51  & \textbf{2.49} & \textbf{3.47} & 0.00  & 0.00  & 0.01  & 0.12  & \textbf{0.29} & \textbf{0.14} & 13.13 & 15.00 & \textbf{26.89} & 299.59 & 248.75 & 182.07 \\
+    \midrule
+    \multicolumn{1}{|c|}{\multirow{5}[2]{*}{\begin{sideways}\textbf{equitemp}\end{sideways}}} & \textbf{nav} & 4.92  & 3.55  & 4.05  & \textbf{2.31} & \textbf{1.65} & NA    & 0.03  & 0.02  & 0.11  & \textbf{0.05} & \textbf{0.11} & 5.92  & 8.18  & 30.10 & 20.61 & NA    & \textbf{203.92} & 562.09 \\
+          & \textbf{arima212} & 4.93  & 3.59  & 3.86  & 2.77  & 2.62  & NA    & 0.03  & 0.02  & 0.11  & 0.11  & 0.14  & \textbf{5.82} & 8.39  & 30.20 & 20.54 & \textbf{180.36} & 245.18 & \textbf{191.25} \\
+          & \textbf{ar2} & 4.85  & \textbf{3.52} & 4.04  & 2.35  & 2.93  & NA    & 0.03  & 0.02  & 0.11  & 0.06  & NA    & 5.91  & 8.19  & 30.17 & 20.58 & NA    & NA    & 559.14 \\
+          & \textbf{hw} & \textbf{4.82} & \textbf{3.52} & 3.84  & 2.47  & 1.67  & NA    & 0.03  & 0.02  & 0.11  & 0.06  & 0.13  & 5.85  & 8.45  & \textbf{20.00} & \textbf{15.90} & NA    & 228.78 & 384.37 \\
+          & \textbf{garch} & 7.97  & 3.54  & 4.02  & 2.34  & 2.92  & NA    & 0.03  & 0.02  & 0.11  & \textbf{0.05} & 0.12  & 5.93  & \textbf{8.17} & 30.03 & 20.52 & NA    & 226.58 & 606.03 \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{Overview of the mean percentage error in terms of entropic relevance for the DFGs with a 75\% reduction.}
+  \label{tab:result_dfg_table_25}%
+\end{table}%
