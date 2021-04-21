@@ -67,14 +67,12 @@ The University of Melbourne, Melbourne, Australia\\
 \maketitle
 
 \begin{abstract}
-The surge in event data recorded during the execution of business processes is ever-growing and has spurred an array of data-driven process analytics to support and improve how the business processes are performed.
-A major strand of such analytics encompasses forecasting how the business processes will unfold into the future, mainly focusing on the next activity, remaining time, and outcome prediction.
-The granularity of such approaches lies with the individual events in the process.
-In contrast, this work approaches process forecasting at a larger scale and proposes a technique to forecast the entire process model from the available historical event data.
-A forecasted model summarises the anticipated business processes and can be used by process analysts to prepare for the upcoming global and longer-term changes, such as impending process drifts or emerging performance bottlenecks.
-To this purpose, event data is reshaped into multiple time series, each representing an evolution of a behavioural aspect of the process model, and collectively specifying the historical evolution of the model.
-We then perform time series forecasting to extrapolate the individual series and, concomitantly, the entire model into the future.
-Experiments confirm that this approach is capable of informing process analysts about the future evolution of the business processes.
+Process analytics is the field focusing on predictions for individual process instances or overall process models. At the instance level, various novel techniques have been recently devised, tackling next activity, remaining time, and outcome prediction. At the model level, there is a notable void. It is the ambition of this paper to fill this gap. To this end, we develop a 
+%The surge in event data recorded during the execution of business processes is ever-growing and has spurred an array of data-driven process analytics to support and improve how the business processes are performed. A major strand of such analytics encompasses forecasting how the business processes will unfold into the future, mainly focusing on the next activity, remaining time, and outcome prediction. The granularity of such approaches lies with the individual events in the process. In contrast, this work approaches process forecasting at a larger scale and proposes a 
+technique to forecast the entire process model from historical event data. A forecasted model as a will-be process model representing a probable future state of the overall process. Such a forecast helps to investigate the consequences of drift and emerging bottlenecks. % the anticipated process () and can be used by process analysts to prepare for the upcoming global and longer-term changes, such as impending process drifts or emerging performance bottlenecks. To this purpose, 
+Our technique builds on a representation of event data as multiple time series, each capturing an evolution of a behavioural aspect of the process model, such that corresponding forecasting techniques can be applied.
+%collectively specifying the historical evolution of the model. We then perform time series forecasting to extrapolate the individual series and, concomitantly, the entire model into the future. Experiments confirm that this approach is capable of informing process analysts about the future evolution of the business processes.
+Our implementation demonstrates the accuracy of our technique on real-world event log data.
 \keywords{Process model forecasting, predictive process modelling, process mining, time series analysis}
 \end{abstract}
 %
@@ -82,13 +80,10 @@ Experiments confirm that this approach is capable of informing process analysts 
 \input{2-motivation}
 \input{3-methodology}
 \input{4-evaluation}
+\input{5-conclusion}
 %\input{5-visualisation}
 
-\section{Conclusion}\label{sec:conclusion}
-In this paper we investigated the potential of using time series forecasting for process model monitoring.
 
-In future research we will cover more intricate forecasting techniques and compare with machine learning-based models.
-Furthermore, we will perform an extensive prediction confidence interval analysis.
 
 \bibliographystyle{splncs03}
 \bibliography{lib}
