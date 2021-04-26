@@ -52,7 +52,7 @@
 %
 \titlerunning{Process Model Forecasting From Time Series } 
 %
-\author{Johannes~De~Smedt\inst{1} \and Anton~Yeshchenko\inst{2} \and Artem~Polyvyanyy\inst{3} \and Jochen~De~Weerdt\inst{1} \and Jan~Mendling\inst{2}}
+\author{Johannes~De~Smedt\inst{1} \and Anton~Yeshchenko\inst{2} \and Artem~Polyvyanyy\inst{3} \and Jochen~De~Weerdt\inst{1} \and Jan~Mendling\inst{4}}
 %
 \institute{
 KU Leuven, Leuven, Belgium\\
@@ -63,14 +63,17 @@ Vienna University of Economics and Business, Austria\\
 \and
 The University of Melbourne, Melbourne, Australia\\
 \email{artem.polyvyanyy@unimelb.edu.au}
+\and
+Humboldt-Universit{\"a}t zu Berlin, Berlin, Germany\\
+\email{jan.mendling@hu-berlin.de}
 }
 \maketitle
 
 \begin{abstract}
 Process analytics is the field focusing on predictions for individual process instances or overall process models. At the instance level, various novel techniques have been recently devised, tackling next activity, remaining time, and outcome prediction. At the model level, there is a notable void. It is the ambition of this paper to fill this gap. To this end, we develop a 
 %The surge in event data recorded during the execution of business processes is ever-growing and has spurred an array of data-driven process analytics to support and improve how the business processes are performed. A major strand of such analytics encompasses forecasting how the business processes will unfold into the future, mainly focusing on the next activity, remaining time, and outcome prediction. The granularity of such approaches lies with the individual events in the process. In contrast, this work approaches process forecasting at a larger scale and proposes a 
-technique to forecast the entire process model from historical event data. A forecasted model as a will-be process model representing a probable future state of the overall process. Such a forecast helps to investigate the consequences of drift and emerging bottlenecks. % the anticipated process () and can be used by process analysts to prepare for the upcoming global and longer-term changes, such as impending process drifts or emerging performance bottlenecks. To this purpose, 
-Our technique builds on a representation of event data as multiple time series, each capturing an evolution of a behavioural aspect of the process model, such that corresponding forecasting techniques can be applied.
+technique to forecast the entire process model from historical event data. A forecasted model is a will-be process model representing a probable future state of the overall process. Such a forecast helps to investigate the consequences of drift and emerging bottlenecks. % the anticipated process () and can be used by process analysts to prepare for the upcoming global and longer-term changes, such as impending process drifts or emerging performance bottlenecks. To this purpose, 
+Our technique builds on a representation of event data as multiple time series, each capturing the evolution of a behavioural aspect of the process model, such that corresponding forecasting techniques can be applied.
 %collectively specifying the historical evolution of the model. We then perform time series forecasting to extrapolate the individual series and, concomitantly, the entire model into the future. Experiments confirm that this approach is capable of informing process analysts about the future evolution of the business processes.
 Our implementation demonstrates the accuracy of our technique on real-world event log data.
 \keywords{Process model forecasting, predictive process modelling, process mining, time series analysis}
