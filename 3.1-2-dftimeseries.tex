@@ -1,19 +1,18 @@
 \subsection{From event log to directly-follows time series}\label{sec:3a:preliminaries}
 
-An event log $L$ which contains the recording of traces $\sigma \in L$ produced by an information system during its execution and contains a sequence of events.
-Events in these traces are part of the power set over the alphabet of activities $\Sigma$ which exist in the information system $\sigma=\langle e_1,...,e_{|\sigma|}\rangle \subseteq \Sigma^*$.
-Directly follows relations between activities in an event log can be expressed as a counting function over activity pairs $>_L: \Sigma\times\Sigma \to \mathbb{N}$ with $>_L(a_1,a_2) = |\{e_n=a_1,e_{n+1}=a_2, \,\forall e_i\in L\}|$.
-Directly follows relations can be calculated on traces and subtraces in a similar fashion.
+An event log $L$ contains the recording of traces $\sigma \in L$ which are sequences of events produced by an information system during its execution.
+A trace $\sigma=\langle e_1,...,e_{|\sigma|}\rangle \subseteq \Sigma^*$ is an element of the power set over the alphabet of activities which serve as the set of event types $\Sigma$.
+Directly-follows relations between activities in an event log can be expressed as counting functions over activity pairs $>_L: \Sigma\times\Sigma \to \mathbb{N}$ with $>_L(a_1,a_2) = |\{e_n=a_1,e_{n+1}=a_2, \,\forall e_i\in L\}|$.
+Directly-follows relations can be calculated on traces and subtraces in a similar fashion.
 A Directly-Follows Graph (DFG) of the process then exists as the weighted directed graph with the activities as nodes and their DF relations as weighted edges $DFG=(\Sigma,>_L)$.
 
 In order to obtain predictions regarding the evolution of the DFG we construct DFGs for subsets of the log.
 Many aggregations and bucketing techniques exist for next-step, performance, and goal-oriented outcome prediction \cite{DBLP:conf/caise/TaxVRD17,DBLP:journals/tkdd/TeinemaaDRM19,nguyen2016business}, e.g., predictions at a point in the process rely on prefixes of a certain length, or particular state aggregations \cite{DBLP:journals/sosym/AalstRVDKG10}.
 In the proposed forecasting approach, we integrate concepts from time-series analysis.
-%however, time series instead of cross-sectional data will be used.
 Hence, the evolution of the DFGs has to be monitored over intervals of the log where multiple aggregations are possible:
 \begin{itemize}
-	\item \textbf{Equitemporal aggregation:} each sublog $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, it is easy to apply (on new traces).
-	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ contains a part of the event log where an equal amount of DFs occurred which leads to well-populated sublogs when enough events are available.
+	\item \textbf{Equitemporal aggregation:} each sublog of interval $s$ $L_s\in L$ contains a part of the event log of equal time duration. This can lead to sparsely populated sublogs when the events' occurrences are not uniformly spread over time, however, it is easy to apply (on new traces).
+	\item \textbf{Equisized aggregation:} each sublog $L_s\in L$ of interval $s$ contains a part of the event log where an equal amount of DFs occurred which leads to well-populated sublogs when enough events are available.
 \end{itemize}
 Tables \ref{tab:eventlog} and \ref{tab:aggregation} provide an example of both.
 These aggregations can be useful for the following reasons.
@@ -21,7 +20,7 @@ First, equisized aggregation will have a higher likelihood of the underlying DFs
 Second, both offer a different threshold at which the forecasting can be applied in practice.
 In the case of equisized aggregation, it is easier to quickly construct a desired number of intervals by simply dividing an event log to obtain equisized intervals.
 However, most time series techniques rely on the time intervals being of equal size which is embodied by the equitemporal aggregation \cite{kil1997optimum}.
-Time series for the DFs $>_{T_{a_1,a_2}}=\langle >_{L_1}(a_1,a_2),\dots,>_{L_s}(a_1,a_2)\rangle, \forall a_1,a_2\in \Sigma\times\Sigma$ can be obtained for all activity pairs where $\bigcup^{L_s}_{L_1}=L$ by applying the aforementioned aggregations to obtain the sublogs.
+Time series for the DFs $>_{T_{a_1,a_2}}=\langle >_{L_1}(a_1,a_2),\dots,>_{L_s}(a_1,a_2)\rangle, \forall a_1,a_2\in \Sigma\times\Sigma$ can be obtained for all activity pairs where $\bigcup^{L_s}_{L_1}=L$ by applying the aforementioned aggregations to obtain the sublogs for the intervals.
 \begin{table}[htbp]
    \begin{minipage}{.5\textwidth}
    	\centering
@@ -95,7 +94,7 @@ They combine auto-regressions with a moving average over error terms.
 It is established by a combination of an AutoRegressive (AR) model of order $p$ uses the past $p$ values in the time series and applies a regression over them and a Moving Average (MA) model of order $q$ which creates a moving average of the past forecast errors.
 Given the necessity of using a white noise series for AR and MA models, data is often differenced to obtain such series.
 ARIMA models then combine both AR and MA models where the integration is taking place after modelling as these models are fitted over differenced time series.
-ARIMA models are considered to be one of the strongest time series modelling techniques.
+ARIMA models are considered to be one of the strongest time series modelling techniques \cite{hyndman2018forecasting}.
 An extension to ARIMA which is widely used in econometrics exists in (Generalized) AutoRegressive Conditional Heteroskedasticity ((G)ARCH) models \cite{francq2019garch}.
 They resolve the assumption that the variance of the error term has to be equal over time, but rather model this variance as a function of the previous error term.
 For AR-models, this leads to the use of ARCH-models, while for ARMA models GARCH-models are used as follows.
